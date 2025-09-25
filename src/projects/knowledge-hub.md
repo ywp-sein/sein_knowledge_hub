@@ -17,7 +17,7 @@ More than just a resource list, this hub will serve as a platform that consolida
 
 ---
 
-# 1 Core Objectives
+## 1 Core Objectives
 
 - **Provide Accessible Support Information**
 
@@ -40,7 +40,7 @@ More than just a resource list, this hub will serve as a platform that consolida
     
     Promote long-term, community-based solutions by highlighting local initiatives, volunteer opportunities, and low-barrier entry points for service.
 
-# 2 Action Points
+## 2 Action Points
 
 - **Resource Mapping & Community Collaboration**
 
@@ -56,7 +56,7 @@ More than just a resource list, this hub will serve as a platform that consolida
 
     Build a user-friendly platform that consolidates existing initiatives and allows for easy updates, filtering, and community submissions.
 
-# 3 Long-Term Impact
+## 3 Long-Term Impact
 
 The Knowledge Hub aims to become a sustainable and trusted bridge between those in need and those willing to help. By centralizing and simplifying access to essential information, the platform will reduce the isolation and confusion often faced by people in crisis. Over time, it will foster a more connected and compassionate community, where support is not only more visible but also more actionable.
 

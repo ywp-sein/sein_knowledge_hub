@@ -9,7 +9,7 @@ This project focuses on collecting and learning from real-life case studies of o
 
 ---
 
-# 1 Core Objectives
+## 1 Core Objectives
 
 - **Learn from frontline organizations**
     - Study their approaches to housing, addiction recovery, job creation, and holistic care
@@ -21,7 +21,7 @@ This project focuses on collecting and learning from real-life case studies of o
     - Highlight successes, failures, and lessons learned from real-life scenario
     - Create accessible formats (written, video, or interview-based) for sharing
 
-# 2 Action Points
+## 2 Action Points
 
 - **Identify Key Organizations**
     - Reach out to local faith-based shelters, and outreach teams
@@ -39,7 +39,7 @@ This project focuses on collecting and learning from real-life case studies of o
     - Create a library of written summaries, videos, and photo essays
     - Highlight key takeaways and practical applications for each case
 
-# 3 Long-Term Impact
+## 3 Long-Term Impact
 
 Over time, this project will help shape a culture of deeper understanding and more effective care among those serving the homeless. By learning directly from real-life examples, we will grow in wisdom, not just theory. The case studies and communication insights will continue to equip new leaders, social workers, and faith communities—building a foundation of respect, empathy, and practical skill. Ultimately, this project will contribute to a more relational and human-centered approach to homelessness in Berlin and beyond, where people are not only served but truly seen.
 

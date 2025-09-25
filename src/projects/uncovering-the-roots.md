@@ -10,7 +10,7 @@ This project takes a step back to examine the broader forces that have led to th
 ---
 
 
-# 1 Core Objectives
+## 1 Core Objectives
 
 - **Analyze key drivers of homelessness**
     - Study housing market trends, wage stagnation, and welfare gaps
@@ -25,7 +25,7 @@ This project takes a step back to examine the broader forces that have led to th
     - Suggest preventive policies and long-term reforms
     - Provide faith-informed insights to inspire just and compassionate policymaking
 
-# 2 Action Points
+## 2 Action Points
 
 - **Integrate a Faith-Based Lens**
     - Reflect on biblical and theological insights related to justice, systems, and human dignity
@@ -49,7 +49,7 @@ This project takes a step back to examine the broader forces that have led to th
     - Compile findings into an accessible white paper or visual summary
     - Offer recommendations for policy, prevention strategies, and collaborative action
 
-# 3 Long-Term Impact
+## 3 Long-Term Impact
 
 This research will shape how we think about homelessness—not as a personal failure, but as a symptom of larger systemic problems. Over time, it will help inform public policy, guide advocacy efforts, and equip faith communities to speak with moral clarity and strategic wisdom into the structures that shape society.
 

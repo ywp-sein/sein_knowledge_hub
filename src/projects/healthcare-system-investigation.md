@@ -11,7 +11,7 @@ This investigation will explore how homeless individuals access and navigate Ber
 
 ---
 
-# 1 Core Objectives
+## 1 Core Objectives
 
 - **Design a Custom Research Topic**
 
@@ -25,15 +25,15 @@ This investigation will explore how homeless individuals access and navigate Ber
 
     With Charité’s open supervision policy, the candidate can choose supervisors from around the world who share their research interests and faith-informed values.
 
-    - [PhD in Global Health at Charité](https://globalhealth-phd.charite.de/en)
+    - [PhD in Global Health at Charité](https://globalhealth-phd.charite.de/en) (​Below are referenced from the website)
         
-        PhD in Global Health at Charité takes a transnational look at health in the Global South and Global North, as well as governance, health policy and the role of climate and environment as the natural basis of health under the framework of the health-related Sustainable Development Goals (SDGs).​
+        The structured PhD program Global Health at the Charité is a collaboration between seven partnering institutions. It aims to train excellent scientists for leadership positions in global health. The program imparts an interdisciplinary  perspective on health and a sensitivity to inter-cultural factors affecting health.
 
 - **Drive Long-Term Impact**
     
     Research findings will inform practical models for healthcare delivery, community support, and public policy, both locally and internationally.
 
-# 2 Action Points
+## 2 Action Points
 
 - **Define Research Focus**
     - Identify key gaps in healthcare for homeless individuals (e.g., mental health, continuity of care).
@@ -51,7 +51,7 @@ This investigation will explore how homeless individuals access and navigate Ber
     - Translate findings into practical models and policy recommendations.
     - Disseminate results through journals, conferences, and community partners.
 
-# 3 Long-Term Impact
+## 3 Long-Term Impact
 
 Become a voice that helps shape how we care for people experiencing homelessness. Their findings can influence how hospitals, clinics, and policymakers respond to real needs on the ground. Churches, charities, and local organizations will also benefit from practical, research-based insights that help them serve better. Over time, this work can build new partnerships, guide future projects, and inspire others to combine faith, research, and action to bring real healing into broken systems.
 
