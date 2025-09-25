@@ -7,10 +7,10 @@
 # Knowledge hub
 
 # Projects
-- [01 Understanding from the Ground Up](projects/understanding-from-the-ground-up.md)
-- [02 Uncovering the Roots](projects/uncovering-the-roots.md)
-- [03 Healthcare System Investigation](projects/healthcare-system-investigation.md)
-- [04 Knowledge Hub](projects/knowledge-hub.md)
+- [Understanding from the Ground Up](projects/understanding-from-the-ground-up.md)
+- [Uncovering the Roots](projects/uncovering-the-roots.md)
+- [Healthcare System Investigation](projects/healthcare-system-investigation.md)
+- [Knowledge Hub](projects/knowledge-hub.md)
 
 # Meeting notes
 - [20250921](meeting_notes/20250921.md)
