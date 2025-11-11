@@ -12,6 +12,6 @@
 - [Healthcare System Investigation](projects/healthcare-system-investigation.md)
 - [Knowledge Hub](projects/knowledge-hub.md)
 
-# Meeting notes
+<!-- # Meeting notes
 - [20250921](meeting_notes/20250921.md)
-- [20250922](meeting_notes/20250922.md)
+- [20250922](meeting_notes/20250922.md) -->
