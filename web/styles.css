@@ -171,6 +171,19 @@ input {
   border-radius: 2px;
 }
 
+.page-nav-group {
+  margin-top: 8px;
+  padding: 7px 8px 3px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.page-nav .subpage-link {
+  padding-left: 18px;
+}
+
 .page-nav a[aria-current="page"] {
   background: var(--soft-line);
   color: var(--ink);
