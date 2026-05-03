@@ -1,0 +1,19 @@
+{
+  "name": "SEiN Knowledge Hub",
+  "short_name": "SEiN Hub",
+  "description": "A Wikipedia-like knowledge hub for Berlin support pathways.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#f8f9fa",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
