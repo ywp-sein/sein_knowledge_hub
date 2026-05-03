@@ -118,6 +118,31 @@ input {
   font-size: 14px;
 }
 
+.language-switch {
+  display: inline-flex;
+  justify-self: end;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.language-switch a {
+  min-width: 38px;
+  padding: 5px 9px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.language-switch a + a {
+  border-left: 1px solid var(--line);
+}
+
+.language-switch a[aria-current="page"] {
+  background: var(--soft-line);
+  font-weight: 700;
+}
+
 .page {
   display: grid;
   grid-template-columns: 220px minmax(0, 1040px);
