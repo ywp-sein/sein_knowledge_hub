@@ -4,6 +4,7 @@ const resourceRows = document.querySelector("#resourceRows");
 const resultCount = document.querySelector("#resultCount");
 
 function renderResources() {
+  if (!searchInput || !resourceRows || !resultCount) return;
   const query = normalize(searchInput.value);
   const visible = resources.filter((resource) => searchable(resource).includes(query));
 
@@ -65,5 +66,5 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-searchInput.addEventListener("input", renderResources);
+if (searchInput) searchInput.addEventListener("input", renderResources);
 renderResources();

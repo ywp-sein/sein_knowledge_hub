@@ -63,6 +63,10 @@ input {
   backdrop-filter: blur(10px);
 }
 
+.site-header:has(.site-nav:first-of-type:last-child) {
+  grid-template-columns: 240px 1fr;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -209,8 +213,14 @@ h3 {
 
 .subtitle {
   max-width: 760px;
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+
+.revision-meta {
   margin-bottom: 0;
   color: var(--muted);
+  font-size: 13px;
 }
 
 .infobox {
@@ -338,6 +348,28 @@ h3 {
 
 .references li {
   margin-bottom: 7px;
+}
+
+.article-list {
+  display: grid;
+  gap: 12px;
+  margin: 12px 0 0;
+  padding-left: 22px;
+}
+
+.article-list li {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.article-list a {
+  display: block;
+  font-weight: 700;
+}
+
+.article-list span {
+  display: block;
+  color: var(--muted);
 }
 
 @media (max-width: 980px) {
