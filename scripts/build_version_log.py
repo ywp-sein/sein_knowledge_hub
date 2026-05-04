@@ -175,6 +175,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if "research-social-issues" in joined:
+        return (
+            "Research social issue method page expanded with methods and references"
+            if lang == "en"
+            else "Methodenseite zur Recherche sozialer Themen um Methoden und Referenzen erweitert"
+        )
     if "themeIcons" in joined or "themeToggle" in joined or ("web/styles.css" in joined and "web/app.js" in joined):
         return (
             "Theme toggle uses open-source-style icons before language switch"

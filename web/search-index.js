@@ -12,8 +12,8 @@ window.SEIN_SEARCH_INDEX = [
     title: "How to research a social issue",
     url: "research-social-issues.html",
     category: "Research method",
-    summary: "A practical method for researching social issues with sources, context, and revision notes.",
-    keywords: "research social issue method sources evidence field notes policy context",
+    summary: "A practical method for researching social issues with source mapping, systems mapping, field conversations, and references.",
+    keywords: "research social issue method sources evidence field notes policy context source mapping systems mapping evaluation references",
   },
   {
     lang: "en",
@@ -76,8 +76,8 @@ window.SEIN_SEARCH_INDEX = [
     title: "Wie man ein soziales Thema recherchiert",
     url: "research-social-issues.de.html",
     category: "Recherchemethode",
-    summary: "Eine praktische Methode zur Recherche sozialer Themen mit Quellen, Kontext und Revisionsnotizen.",
-    keywords: "Recherche soziales Thema Methode Quellen Evidenz Feldnotizen Politik Kontext",
+    summary: "Eine praktische Methode zur Recherche sozialer Themen mit Quellenkartierung, Systemkartierung, Feldgesprächen und Referenzen.",
+    keywords: "Recherche soziales Thema Methode Quellen Evidenz Feldnotizen Politik Kontext Quellenkartierung Systemkartierung Evaluation Referenzen",
   },
   {
     lang: "de",
