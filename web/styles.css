@@ -253,6 +253,27 @@ input {
   font-weight: 700;
 }
 
+.sidebar-note {
+  display: grid;
+  gap: 6px;
+  margin-top: 18px;
+  padding: 10px;
+  border-top: 1px solid var(--soft-line);
+  border-bottom: 1px solid var(--soft-line);
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.sidebar-note strong {
+  color: var(--ink);
+}
+
+.sidebar-note p {
+  margin: 0;
+}
+
 .article {
   min-width: 0;
   padding: 0 0 48px;

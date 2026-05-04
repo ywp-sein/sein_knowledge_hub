@@ -177,9 +177,9 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     joined = " ".join(record.files)
     if "search-index.js" in joined or "wikiSearch" in joined or "app.js" in joined:
         return (
-            "Global sidebar search across Knowledge Hub pages"
+            "Global sidebar search and GitHub issue feedback link"
             if lang == "en"
-            else "Globale Suche in der Seitenleiste über alle Knowledge-Hub-Seiten"
+            else "Globale Suche in der Seitenleiste und Feedback-Link zu GitHub Issues"
         )
     if "knowledge-hub-version-log" in joined:
         return (
@@ -217,6 +217,9 @@ def page(lang: str, records: list[VersionRecord]) -> str:
             "pages": "Seiten",
             "search_label": "Wiki durchsuchen",
             "search_placeholder": "Wohnungslosigkeit, Politik...",
+            "issue_title": "Dieses Hub verbessern",
+            "issue_text": "Vorschläge, Korrekturen und neue Quellenideen können über GitHub Issues geteilt werden.",
+            "issue_link": "Issue öffnen",
             "namespace": "Entwicklungsseite",
             "h1": "Versionsprotokoll des Knowledge Hub",
             "subtitle": "Ein automatisch erzeugtes Protokoll der Website-Revisionen und Inhaltsaktualisierungen.",
@@ -255,6 +258,9 @@ def page(lang: str, records: list[VersionRecord]) -> str:
             "pages": "Pages",
             "search_label": "Search the wiki",
             "search_placeholder": "homelessness, policy...",
+            "issue_title": "Improve this hub",
+            "issue_text": "Suggestions, corrections, and new source ideas can be shared through GitHub issues.",
+            "issue_link": "Open an issue",
             "namespace": "Development page",
             "h1": "Knowledge Hub version log",
             "subtitle": "An automatically generated record of website revisions and content updates.",
@@ -308,6 +314,11 @@ def page(lang: str, records: list[VersionRecord]) -> str:
         <ul class="page-nav">
 {nav}
         </ul>
+        <div class="sidebar-note">
+          <strong>{labels["issue_title"]}</strong>
+          <p>{labels["issue_text"]}</p>
+          <a href="https://github.com/ywp-sein/sein_knowledge_hub/issues">{labels["issue_link"]}</a>
+        </div>
       </aside>
 
       <main class="article">
