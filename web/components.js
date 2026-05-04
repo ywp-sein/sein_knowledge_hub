@@ -4,7 +4,14 @@ const pageGroups = [
     de: "Hauptseite",
     pages: [
       { id: "index", en: "Main page", de: "Startseite" },
+    ],
+  },
+  {
+    en: "Some Hows",
+    de: "Einige Wie-Fragen",
+    pages: [
       { id: "research-social-issues", en: "How to research a social issue", de: "Wie man ein soziales Thema recherchiert" },
+      { id: "how-to-have-hope-to-help", en: "How to have hope to help", de: "Wie man Hoffnung behält, um zu helfen" },
     ],
   },
   {
