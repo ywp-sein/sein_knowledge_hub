@@ -175,6 +175,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if "data-theme" in joined or "themeSelect" in joined or ("web/styles.css" in joined and "web/app.js" in joined):
+        return (
+            "Browser-aware light and dark theme selector added"
+            if lang == "en"
+            else "Browserabhängige Hell-Dunkel-Darstellung mit Auswahl ergänzt"
+        )
     if "knowledge-hub-next-steps" in joined:
         return (
             "Issue label set simplified to avoid content and source overlap"
@@ -223,6 +229,9 @@ def page(lang: str, records: list[VersionRecord]) -> str:
             "pages": "Seiten",
             "search_label": "Wiki durchsuchen",
             "search_placeholder": "Wohnungslosigkeit, Politik...",
+            "theme_label": "Darstellung",
+            "theme_light": "Hell",
+            "theme_dark": "Dunkel",
             "issue_title": "Dieses Hub verbessern",
             "issue_text": "Vorschläge, Korrekturen und neue Quellenideen können über GitHub Issues geteilt werden.",
             "issue_link": "Issue öffnen",
@@ -264,6 +273,9 @@ def page(lang: str, records: list[VersionRecord]) -> str:
             "pages": "Pages",
             "search_label": "Search the wiki",
             "search_placeholder": "homelessness, policy...",
+            "theme_label": "Theme",
+            "theme_light": "Light",
+            "theme_dark": "Dark",
             "issue_title": "Improve this hub",
             "issue_text": "Suggestions, corrections, and new source ideas can be shared through GitHub issues.",
             "issue_link": "Open an issue",
@@ -292,7 +304,8 @@ def page(lang: str, records: list[VersionRecord]) -> str:
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#f8f9fa" />
+    <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#171c21" media="(prefers-color-scheme: dark)" />
     <title>{html.escape(title)}</title>
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
@@ -307,6 +320,14 @@ def page(lang: str, records: list[VersionRecord]) -> str:
       <nav class="language-switch" aria-label="language">
         {switch}
       </nav>
+      <label class="theme-control">
+        <span>{labels["theme_label"]}</span>
+        <select id="themeSelect" aria-label="{labels["theme_label"]}">
+          <option value="auto">Auto</option>
+          <option value="light">{labels["theme_light"]}</option>
+          <option value="dark">{labels["theme_dark"]}</option>
+        </select>
+      </label>
     </header>
 
     <div class="page">

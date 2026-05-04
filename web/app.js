@@ -4,7 +4,51 @@ const searchInput = document.querySelector("#wikiSearch");
 const searchResults = document.querySelector("#wikiSearchResults");
 const resourceRows = document.querySelector("#resourceRows");
 const resultCount = document.querySelector("#resultCount");
+const themeSelect = document.querySelector("#themeSelect");
+const themeColorMetas = document.querySelectorAll('meta[name="theme-color"]');
 const isGerman = document.documentElement.lang === "de";
+const themeStorageKey = "sein-knowledge-hub-theme";
+
+function applyTheme(value) {
+  const theme = ["auto", "light", "dark"].includes(value) ? value : "auto";
+  if (theme === "auto") {
+    document.documentElement.removeAttribute("data-theme");
+    themeColorMetas.forEach((meta) => {
+      if (meta.dataset.originalMedia) meta.setAttribute("media", meta.dataset.originalMedia);
+    });
+  } else {
+    document.documentElement.dataset.theme = theme;
+    const color = theme === "dark" ? "#171c21" : "#f8f9fa";
+    themeColorMetas.forEach((meta) => {
+      if (!meta.dataset.originalMedia) meta.dataset.originalMedia = meta.getAttribute("media") || "";
+      meta.removeAttribute("media");
+      meta.setAttribute("content", color);
+    });
+  }
+  if (themeSelect) themeSelect.value = theme;
+}
+
+function setTheme(value) {
+  const theme = ["auto", "light", "dark"].includes(value) ? value : "auto";
+  try {
+    if (theme === "auto") {
+      localStorage.removeItem(themeStorageKey);
+    } else {
+      localStorage.setItem(themeStorageKey, theme);
+    }
+  } catch {
+    // The selector should still work even when storage is blocked.
+  }
+  applyTheme(theme);
+}
+
+function storedTheme() {
+  try {
+    return localStorage.getItem(themeStorageKey) || "auto";
+  } catch {
+    return "auto";
+  }
+}
 
 function renderSiteSearch() {
   if (!searchInput || !searchResults) return;
@@ -117,5 +161,7 @@ if (searchInput) {
     renderResources();
   });
 }
+applyTheme(storedTheme());
+if (themeSelect) themeSelect.addEventListener("change", (event) => setTheme(event.target.value));
 renderSiteSearch();
 renderResources();

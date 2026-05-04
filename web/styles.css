@@ -1,4 +1,39 @@
 :root {
+  color-scheme: light dark;
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --ink: #202122;
+  --muted: #54595d;
+  --line: #a2a9b1;
+  --soft-line: #eaecf0;
+  --link: #3366cc;
+  --visited: #6b4ba1;
+  --header: #f8f9fa;
+  --header-bg: rgba(248, 249, 250, 0.96);
+  --infobox: #f8f9fa;
+  --infobox-title: #dfe8f2;
+  --stripe: #fbfbfb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101418;
+    --surface: #171c21;
+    --ink: #eaecf0;
+    --muted: #a2a9b1;
+    --line: #72777d;
+    --soft-line: #30363d;
+    --link: #8cb4ff;
+    --visited: #c8a2ff;
+    --header: #171c21;
+    --header-bg: rgba(23, 28, 33, 0.96);
+    --infobox: #20262d;
+    --infobox-title: #273341;
+    --stripe: #1d242b;
+  }
+}
+
+:root[data-theme="light"] {
   color-scheme: light;
   --bg: #f8f9fa;
   --surface: #ffffff;
@@ -9,7 +44,27 @@
   --link: #3366cc;
   --visited: #6b4ba1;
   --header: #f8f9fa;
+  --header-bg: rgba(248, 249, 250, 0.96);
   --infobox: #f8f9fa;
+  --infobox-title: #dfe8f2;
+  --stripe: #fbfbfb;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #101418;
+  --surface: #171c21;
+  --ink: #eaecf0;
+  --muted: #a2a9b1;
+  --line: #72777d;
+  --soft-line: #30363d;
+  --link: #8cb4ff;
+  --visited: #c8a2ff;
+  --header: #171c21;
+  --header-bg: rgba(23, 28, 33, 0.96);
+  --infobox: #20262d;
+  --infobox-title: #273341;
+  --stripe: #1d242b;
 }
 
 * {
@@ -44,7 +99,8 @@ a:hover {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -53,13 +109,13 @@ input {
   z-index: 10;
   top: 0;
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 240px 1fr auto;
   gap: 16px;
   align-items: center;
   min-height: 58px;
   padding: 8px 24px;
   border-bottom: 1px solid var(--soft-line);
-  background: rgba(248, 249, 250, 0.96);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
 }
 
@@ -137,6 +193,29 @@ input {
 .language-switch a[aria-current="page"] {
   background: var(--soft-line);
   font-weight: 700;
+}
+
+.theme-control {
+  display: inline-flex;
+  justify-self: end;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.theme-control select {
+  min-height: 31px;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.theme-control select:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 1px;
 }
 
 .page {
@@ -355,7 +434,7 @@ h3 {
   margin: 0;
   padding: 8px 10px;
   border-bottom: 1px solid var(--line);
-  background: #dfe8f2;
+  background: var(--infobox-title);
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
@@ -412,7 +491,7 @@ h3 {
 }
 
 .directory-table tbody tr:nth-child(even) {
-  background: #fbfbfb;
+  background: var(--stripe);
 }
 
 .table-wrap {
@@ -499,6 +578,11 @@ h3 {
 
   .site-nav {
     justify-content: flex-start;
+  }
+
+  .language-switch,
+  .theme-control {
+    justify-self: start;
   }
 
   .contents {
