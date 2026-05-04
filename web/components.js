@@ -10,8 +10,8 @@ const pageGroups = [
     en: "Some Hows",
     de: "Einige Wie-Fragen",
     pages: [
-      { id: "research-social-issues", en: "How to research a social issue", de: "Wie man ein soziales Thema recherchiert" },
       { id: "how-to-change-society", en: "How to change society", de: "Wie man Gesellschaft verändert" },
+      { id: "research-social-issues", en: "How to research a social issue", de: "Wie man ein soziales Thema recherchiert" },
     ],
   },
   {
@@ -121,7 +121,7 @@ class SeinSidebar extends HTMLElement {
         const items = group.pages
           .map((item) => {
             const current = item.id === page ? ' aria-current="page"' : "";
-            const subpage = item.id === "index" || item.id === "research-social-issues" ? "" : ' class="subpage-link"';
+            const subpage = item.id === "index" || group.en === "Some Hows" ? "" : ' class="subpage-link"';
             return `          <li><a${subpage} href="${pageHref(item.id, lang)}"${current}>${item[lang]}</a></li>`;
           })
           .join("\n");

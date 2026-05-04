@@ -181,6 +181,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
             if lang == "en"
             else "Wie man Gesellschaft verändert um Verantwortung für Worte und Taten ergänzt"
         )
+    if "components.js" in joined and "service-worker.js" in joined:
+        return (
+            "Some Hows sidebar order and indentation adjusted"
+            if lang == "en"
+            else "Reihenfolge und Einrückung der Sidebar-Kategorie Einige Wie-Fragen angepasst"
+        )
     if "homelessness-organizations-berlin" in joined:
         return (
             "Teen Challenge and Salvation Army sources added to Berlin organization list"
