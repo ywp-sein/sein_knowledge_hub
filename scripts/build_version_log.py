@@ -175,6 +175,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if "components.js" in joined and "styles.css" in joined:
+        return (
+            "Sidebar categories made foldable and duplicate infobox revision rows removed"
+            if lang == "en"
+            else "Sidebar-Kategorien einklappbar gemacht und doppelte Revisionszeilen aus Infoboxen entfernt"
+        )
     if "components.js" in joined:
         return (
             "Shared header and sidebar components added across pages"
@@ -368,7 +374,6 @@ def page(lang: str, records: list[VersionRecord]) -> str:
               <div><dt>{labels["type"]}</dt><dd>{labels["type_value"]}</dd></div>
               <div><dt>{labels["purpose"]}</dt><dd>{labels["purpose_value"]}</dd></div>
               <div><dt>{labels["rule"]}</dt><dd>{labels["rule_value"]}</dd></div>
-              <div><dt>{labels["revised"]}</dt><dd><time datetime="{revised_iso}">{html.escape(revised_label)}</time></dd></div>
             </dl>
           </aside>
 

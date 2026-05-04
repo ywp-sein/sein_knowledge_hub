@@ -105,6 +105,7 @@ class SeinSidebar extends HTMLElement {
 
     const nav = pageGroups
       .map((group) => {
+        const isOpen = group.pages.some((item) => item.id === page);
         const items = group.pages
           .map((item) => {
             const current = item.id === page ? ' aria-current="page"' : "";
@@ -112,7 +113,12 @@ class SeinSidebar extends HTMLElement {
             return `          <li><a${subpage} href="${pageHref(item.id, lang)}"${current}>${item[lang]}</a></li>`;
           })
           .join("\n");
-        return `          <li class="page-nav-group">${group[lang]}</li>\n${items}`;
+        return `          <details class="page-nav-group"${isOpen ? " open" : ""}>
+            <summary>${group[lang]}</summary>
+            <ul>
+${items}
+            </ul>
+          </details>`;
       })
       .join("\n");
 
@@ -124,9 +130,9 @@ class SeinSidebar extends HTMLElement {
           <div id="wikiSearchResults" class="search-results" hidden></div>
         </form>
         <h2>${labels.pages}</h2>
-        <ul class="page-nav">
+        <nav class="page-nav" aria-label="${labels.pages}">
 ${nav}
-        </ul>
+        </nav>
         <div class="sidebar-note">
           <strong>${labels.improve}</strong>
           <p>${labels.issueText}</p>
