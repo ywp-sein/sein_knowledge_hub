@@ -175,6 +175,18 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if ("imprint" in joined or "privacy" in joined or "license" in joined) and "research-social-issues" in joined:
+        return (
+            "Legal pages added and research method references embedded"
+            if lang == "en"
+            else "Rechtsseiten ergänzt und Referenzen in die Methodenseite eingebettet"
+        )
+    if "imprint" in joined or "privacy" in joined or "license" in joined:
+        return (
+            "Legal pages added for imprint, privacy, and license"
+            if lang == "en"
+            else "Rechtsseiten für Impressum, Datenschutz und Lizenz ergänzt"
+        )
     if "research-social-issues" in joined:
         return (
             "Research social issue method page expanded with methods and references"
@@ -230,7 +242,11 @@ def page(lang: str, records: list[VersionRecord]) -> str:
           <li><a class="subpage-link" href="homelessness-policies-germany.de.html">Politik in Deutschland</a></li>
           <li class="page-nav-group">Entwicklung des Knowledge Hub</li>
           <li><a class="subpage-link" href="knowledge-hub-version-log.de.html" aria-current="page">Versionsprotokoll</a></li>
-          <li><a class="subpage-link" href="knowledge-hub-next-steps.de.html">Nächste Schritte</a></li>"""
+          <li><a class="subpage-link" href="knowledge-hub-next-steps.de.html">Nächste Schritte</a></li>
+          <li class="page-nav-group">Rechtliches</li>
+          <li><a class="subpage-link" href="imprint.de.html">Impressum</a></li>
+          <li><a class="subpage-link" href="privacy.de.html">Datenschutz</a></li>
+          <li><a class="subpage-link" href="license.de.html">Lizenz</a></li>"""
         labels = {
             "pages": "Seiten",
             "search_label": "Wiki durchsuchen",
@@ -272,7 +288,11 @@ def page(lang: str, records: list[VersionRecord]) -> str:
           <li><a class="subpage-link" href="homelessness-policies-germany.html">Policies in Germany</a></li>
           <li class="page-nav-group">Knowledge Hub development</li>
           <li><a class="subpage-link" href="knowledge-hub-version-log.html" aria-current="page">Version log</a></li>
-          <li><a class="subpage-link" href="knowledge-hub-next-steps.html">Next steps</a></li>"""
+          <li><a class="subpage-link" href="knowledge-hub-next-steps.html">Next steps</a></li>
+          <li class="page-nav-group">Legal</li>
+          <li><a class="subpage-link" href="imprint.html">Imprint</a></li>
+          <li><a class="subpage-link" href="privacy.html">Privacy Policy</a></li>
+          <li><a class="subpage-link" href="license.html">License</a></li>"""
         labels = {
             "pages": "Pages",
             "search_label": "Search the wiki",

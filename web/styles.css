@@ -582,6 +582,28 @@ h3 {
   color: var(--muted);
 }
 
+.legal-list {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 18px;
+}
+
+.legal-list div {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.legal-list dt {
+  font-weight: 700;
+}
+
+.legal-list dd {
+  margin: 0;
+}
+
 @media (max-width: 980px) {
   .site-header,
   .page {
