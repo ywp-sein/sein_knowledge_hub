@@ -181,6 +181,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
             if lang == "en"
             else "Rechts-, Datenschutz- und Quellenhinweise geschärft und Sidebar-Kategorien einklappbar gemacht"
         )
+    if "components.js" in joined and "app.js" in joined and "styles.css" in joined:
+        return (
+            "Phone layout separated from desktop with a slide-out wiki sidebar"
+            if lang == "en"
+            else "Smartphone-Layout vom Desktop getrennt und Wiki-Sidebar als Slide-out ergänzt"
+        )
     if "styles.css" in joined and "components.js" not in joined:
         return (
             "Phone browser layout improved for header, sidebar, infoboxes, and tables"

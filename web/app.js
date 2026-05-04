@@ -4,6 +4,9 @@ const searchInput = document.querySelector("#wikiSearch");
 const searchResults = document.querySelector("#wikiSearchResults");
 const resourceRows = document.querySelector("#resourceRows");
 const resultCount = document.querySelector("#resultCount");
+const sidebar = document.querySelector("#siteSidebar");
+const sidebarToggle = document.querySelector("#sidebarToggle");
+const sidebarClose = document.querySelector("#sidebarClose");
 const themeToggle = document.querySelector("#themeToggle");
 const themeColorMetas = document.querySelectorAll('meta[name="theme-color"]');
 const isGerman = document.documentElement.lang === "de";
@@ -182,10 +185,38 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function openSidebar() {
+  if (!sidebar || !sidebarToggle) return;
+  document.documentElement.classList.add("sidebar-open");
+  sidebarToggle.setAttribute("aria-expanded", "true");
+}
+
+function closeSidebar() {
+  if (!sidebar || !sidebarToggle) return;
+  document.documentElement.classList.remove("sidebar-open");
+  sidebarToggle.setAttribute("aria-expanded", "false");
+}
+
 if (searchInput) {
   searchInput.addEventListener("input", () => {
     renderSiteSearch();
     renderResources();
+  });
+}
+if (sidebarToggle) sidebarToggle.addEventListener("click", openSidebar);
+if (sidebarClose) sidebarClose.addEventListener("click", closeSidebar);
+document.addEventListener("click", (event) => {
+  if (!document.documentElement.classList.contains("sidebar-open")) return;
+  if (sidebar && sidebar.contains(event.target)) return;
+  if (sidebarToggle && sidebarToggle.contains(event.target)) return;
+  closeSidebar();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeSidebar();
+});
+if (sidebar) {
+  sidebar.addEventListener("click", (event) => {
+    if (event.target.closest("a")) closeSidebar();
   });
 }
 applyTheme(storedTheme());

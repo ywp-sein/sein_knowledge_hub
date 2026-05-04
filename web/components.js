@@ -54,16 +54,21 @@ function themeIcon() {
   return '<svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>';
 }
 
+function menuIcon() {
+  return '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>';
+}
+
 class SeinHeader extends HTMLElement {
   connectedCallback() {
     const lang = currentLang();
     const page = currentPageId();
     const labels = {
-      en: { home: "SEiN Knowledge Hub home", language: "language", theme: "Theme" },
-      de: { home: "SEiN Knowledge Hub Startseite", language: "Sprache", theme: "Darstellung" },
+      en: { home: "SEiN Knowledge Hub home", language: "language", menu: "Open pages menu", theme: "Theme" },
+      de: { home: "SEiN Knowledge Hub Startseite", language: "Sprache", menu: "Seitenmenü öffnen", theme: "Darstellung" },
     }[lang];
     this.innerHTML = `
       <header class="site-header">
+        <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="${labels.menu}" aria-controls="siteSidebar" aria-expanded="false">${menuIcon()}</button>
         <a class="brand" href="${pageHref("index", lang)}" aria-label="${labels.home}">
           <img src="icon.svg" alt="" />
           <span>SEiN Knowledge Hub</span>
@@ -123,7 +128,8 @@ ${items}
       .join("\n");
 
     this.innerHTML = `
-      <aside class="contents" aria-label="${labels.aria}">
+      <aside class="contents" id="siteSidebar" aria-label="${labels.aria}">
+        <button class="sidebar-close" id="sidebarClose" type="button" aria-label="${lang === "de" ? "Seitenmenü schließen" : "Close pages menu"}">×</button>
         <form class="sidebar-search" role="search">
           <label for="wikiSearch">${labels.search}</label>
           <input id="wikiSearch" type="search" autocomplete="off" placeholder="${labels.placeholder}" />
