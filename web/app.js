@@ -4,10 +4,15 @@ const searchInput = document.querySelector("#wikiSearch");
 const searchResults = document.querySelector("#wikiSearchResults");
 const resourceRows = document.querySelector("#resourceRows");
 const resultCount = document.querySelector("#resultCount");
-const themeSelect = document.querySelector("#themeSelect");
+const themeToggle = document.querySelector("#themeToggle");
 const themeColorMetas = document.querySelectorAll('meta[name="theme-color"]');
 const isGerman = document.documentElement.lang === "de";
 const themeStorageKey = "sein-knowledge-hub-theme";
+const themeOrder = ["auto", "light", "dark"];
+const themeLabels = {
+  en: { auto: "Auto", light: "Light", dark: "Dark" },
+  de: { auto: "Auto", light: "Hell", dark: "Dunkel" },
+};
 
 function applyTheme(value) {
   const theme = ["auto", "light", "dark"].includes(value) ? value : "auto";
@@ -25,7 +30,16 @@ function applyTheme(value) {
       meta.setAttribute("content", color);
     });
   }
-  if (themeSelect) themeSelect.value = theme;
+  if (themeToggle) {
+    themeToggle.dataset.theme = theme;
+    themeToggle.textContent = themeLabels[isGerman ? "de" : "en"][theme];
+    themeToggle.setAttribute(
+      "aria-label",
+      isGerman
+        ? `Darstellung: ${themeLabels.de[theme]}`
+        : `Theme: ${themeLabels.en[theme]}`,
+    );
+  }
 }
 
 function setTheme(value) {
@@ -48,6 +62,14 @@ function storedTheme() {
   } catch {
     return "auto";
   }
+}
+
+function nextTheme() {
+  const current = ["auto", "light", "dark"].includes(document.documentElement.dataset.theme)
+    ? document.documentElement.dataset.theme
+    : storedTheme();
+  const index = themeOrder.indexOf(current);
+  return themeOrder[(index + 1) % themeOrder.length];
 }
 
 function renderSiteSearch() {
@@ -162,6 +184,6 @@ if (searchInput) {
   });
 }
 applyTheme(storedTheme());
-if (themeSelect) themeSelect.addEventListener("change", (event) => setTheme(event.target.value));
+if (themeToggle) themeToggle.addEventListener("click", () => setTheme(nextTheme()));
 renderSiteSearch();
 renderResources();

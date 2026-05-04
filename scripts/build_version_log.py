@@ -28,7 +28,7 @@ class VersionRecord:
 
 
 def run_git(args: list[str]) -> str:
-    return subprocess.check_output(["git", *args], cwd=ROOT, text=True).strip()
+    return subprocess.check_output(["git", *args], cwd=ROOT, text=True).rstrip("\n")
 
 
 def git_records() -> list[VersionRecord]:
@@ -175,11 +175,11 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
-    if "data-theme" in joined or "themeSelect" in joined or ("web/styles.css" in joined and "web/app.js" in joined):
+    if "data-theme" in joined or "themeToggle" in joined or ("web/styles.css" in joined and "web/app.js" in joined):
         return (
-            "Browser-aware light and dark theme selector added"
+            "Light and dark theme toggle moved before language switch"
             if lang == "en"
-            else "Browserabhängige Hell-Dunkel-Darstellung mit Auswahl ergänzt"
+            else "Hell-Dunkel-Schalter vor die Sprachauswahl verschoben"
         )
     if "knowledge-hub-next-steps" in joined:
         return (
@@ -230,8 +230,6 @@ def page(lang: str, records: list[VersionRecord]) -> str:
             "search_label": "Wiki durchsuchen",
             "search_placeholder": "Wohnungslosigkeit, Politik...",
             "theme_label": "Darstellung",
-            "theme_light": "Hell",
-            "theme_dark": "Dunkel",
             "issue_title": "Dieses Hub verbessern",
             "issue_text": "Vorschläge, Korrekturen und neue Quellenideen können über GitHub Issues geteilt werden.",
             "issue_link": "Issue öffnen",
@@ -274,8 +272,6 @@ def page(lang: str, records: list[VersionRecord]) -> str:
             "search_label": "Search the wiki",
             "search_placeholder": "homelessness, policy...",
             "theme_label": "Theme",
-            "theme_light": "Light",
-            "theme_dark": "Dark",
             "issue_title": "Improve this hub",
             "issue_text": "Suggestions, corrections, and new source ideas can be shared through GitHub issues.",
             "issue_link": "Open an issue",
@@ -317,17 +313,10 @@ def page(lang: str, records: list[VersionRecord]) -> str:
         <img src="icon.svg" alt="" />
         <span>SEiN Knowledge Hub</span>
       </a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="{labels["theme_label"]}" aria-live="polite">Auto</button>
       <nav class="language-switch" aria-label="language">
         {switch}
       </nav>
-      <label class="theme-control">
-        <span>{labels["theme_label"]}</span>
-        <select id="themeSelect" aria-label="{labels["theme_label"]}">
-          <option value="auto">Auto</option>
-          <option value="light">{labels["theme_light"]}</option>
-          <option value="dark">{labels["theme_dark"]}</option>
-        </select>
-      </label>
     </header>
 
     <div class="page">
