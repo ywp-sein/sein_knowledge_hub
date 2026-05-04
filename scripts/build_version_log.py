@@ -181,6 +181,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
             if lang == "en"
             else "Gemeinsame Header- und Sidebar-Komponenten für alle Seiten ergänzt"
         )
+    if "imprint" in joined or "privacy" in joined:
+        return (
+            "Legal contact details added to imprint and privacy pages"
+            if lang == "en"
+            else "Rechtliche Kontaktdaten in Impressum und Datenschutz ergänzt"
+        )
     if ("imprint" in joined or "privacy" in joined or "license" in joined) and "research-social-issues" in joined:
         return (
             "Legal pages added and research method references embedded"
