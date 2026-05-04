@@ -1,4 +1,4 @@
-const CACHE_NAME = "sein-knowledge-hub-v26";
+const CACHE_NAME = "sein-knowledge-hub-v27";
 const ASSETS = [
   "./",
   "./index.html",
@@ -24,6 +24,7 @@ const ASSETS = [
   "./license.html",
   "./license.de.html",
   "./styles.css",
+  "./components.js",
   "./resources.js",
   "./search-index.js",
   "./app.js",

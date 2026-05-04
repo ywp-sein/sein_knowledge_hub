@@ -11,47 +11,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="index.html" aria-label="SEiN Knowledge Hub home">
-        <img src="icon.svg" alt="" />
-        <span>SEiN Knowledge Hub</span>
-      </a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme" aria-live="polite"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg><span>Auto</span></button>
-      <nav class="language-switch" aria-label="language">
-        <a aria-current="page" href="imprint.html">EN</a>
-        <a href="imprint.de.html">DE</a>
-      </nav>
-    </header>
+    <sein-header></sein-header>
     <div class="page">
-      <aside class="contents" aria-label="wiki pages">
-        <form class="sidebar-search" role="search">
-          <label for="wikiSearch">Search the wiki</label>
-          <input id="wikiSearch" type="search" autocomplete="off" placeholder="homelessness, policy..." />
-          <div id="wikiSearchResults" class="search-results" hidden></div>
-        </form>
-        <h2>Pages</h2>
-        <ul class="page-nav">
-          <li><a href="index.html">Main page</a></li>
-          <li><a href="research-social-issues.html">How to research a social issue</a></li>
-          <li class="page-nav-group">Homelessness</li>
-          <li><a class="subpage-link" href="homelessness-berlin.html">Overview in Berlin</a></li>
-          <li><a class="subpage-link" href="homelessness-how-to-help.html">How to help</a></li>
-          <li><a class="subpage-link" href="homelessness-organizations-berlin.html">Organizations in Berlin</a></li>
-          <li><a class="subpage-link" href="homelessness-policies-germany.html">Policies in Germany</a></li>
-          <li class="page-nav-group">Knowledge Hub development</li>
-          <li><a class="subpage-link" href="knowledge-hub-version-log.html">Version log</a></li>
-          <li><a class="subpage-link" href="knowledge-hub-next-steps.html">Next steps</a></li>
-          <li class="page-nav-group">Legal</li>
-          <li><a class="subpage-link" href="imprint.html" aria-current="page">Imprint</a></li>
-          <li><a class="subpage-link" href="privacy.html">Privacy Policy</a></li>
-          <li><a class="subpage-link" href="license.html">License</a></li>
-        </ul>
-        <div class="sidebar-note">
-          <strong>Improve this hub</strong>
-          <p>Suggestions, corrections, and new source ideas can be shared through GitHub issues.</p>
-          <a href="https://github.com/ywp-sein/sein_knowledge_hub/issues">Open an issue</a>
-        </div>
-      </aside>
+      <sein-sidebar></sein-sidebar>
       <main class="article">
         <article>
           <header class="article-header">
@@ -91,6 +53,7 @@
         </article>
       </main>
     </div>
+    <script src="components.js"></script>
     <script src="resources.js"></script>
     <script src="search-index.js"></script>
     <script src="app.js"></script>

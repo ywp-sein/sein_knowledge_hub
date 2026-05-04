@@ -11,37 +11,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="index.de.html" aria-label="SEiN Knowledge Hub Startseite"><img src="icon.svg" alt="" /><span>SEiN Knowledge Hub</span></a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Darstellung" aria-live="polite"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg><span>Auto</span></button>
-      <nav class="language-switch" aria-label="Sprache"><a href="license.html">EN</a><a aria-current="page" href="license.de.html">DE</a></nav>
-    </header>
+    <sein-header></sein-header>
     <div class="page">
-      <aside class="contents" aria-label="Wiki-Seiten">
-        <form class="sidebar-search" role="search"><label for="wikiSearch">Wiki durchsuchen</label><input id="wikiSearch" type="search" autocomplete="off" placeholder="Wohnungslosigkeit, Politik..." /><div id="wikiSearchResults" class="search-results" hidden></div></form>
-        <h2>Seiten</h2>
-        <ul class="page-nav">
-          <li><a href="index.de.html">Startseite</a></li>
-          <li><a href="research-social-issues.de.html">Wie man ein soziales Thema recherchiert</a></li>
-          <li class="page-nav-group">Wohnungslosigkeit</li>
-          <li><a class="subpage-link" href="homelessness-berlin.de.html">Überblick in Berlin</a></li>
-          <li><a class="subpage-link" href="homelessness-how-to-help.de.html">Wie man hilft</a></li>
-          <li><a class="subpage-link" href="homelessness-organizations-berlin.de.html">Organisationen in Berlin</a></li>
-          <li><a class="subpage-link" href="homelessness-policies-germany.de.html">Politik in Deutschland</a></li>
-          <li class="page-nav-group">Entwicklung des Knowledge Hub</li>
-          <li><a class="subpage-link" href="knowledge-hub-version-log.de.html">Versionsprotokoll</a></li>
-          <li><a class="subpage-link" href="knowledge-hub-next-steps.de.html">Nächste Schritte</a></li>
-          <li class="page-nav-group">Rechtliches</li>
-          <li><a class="subpage-link" href="imprint.de.html">Impressum</a></li>
-          <li><a class="subpage-link" href="privacy.de.html">Datenschutz</a></li>
-          <li><a class="subpage-link" href="license.de.html" aria-current="page">Lizenz</a></li>
-        </ul>
-        <div class="sidebar-note">
-          <strong>Dieses Hub verbessern</strong>
-          <p>Vorschläge, Korrekturen und neue Quellenideen können über GitHub Issues geteilt werden.</p>
-          <a href="https://github.com/ywp-sein/sein_knowledge_hub/issues">Issue öffnen</a>
-        </div>
-      </aside>
+      <sein-sidebar></sein-sidebar>
       <main class="article">
         <article>
           <header class="article-header">
@@ -81,6 +53,7 @@
         </article>
       </main>
     </div>
+    <script src="components.js"></script>
     <script src="resources.js"></script>
     <script src="search-index.js"></script>
     <script src="app.js"></script>

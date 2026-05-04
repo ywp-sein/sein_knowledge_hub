@@ -175,6 +175,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if "components.js" in joined:
+        return (
+            "Shared header and sidebar components added across pages"
+            if lang == "en"
+            else "Gemeinsame Header- und Sidebar-Komponenten für alle Seiten ergänzt"
+        )
     if ("imprint" in joined or "privacy" in joined or "license" in joined) and "research-social-issues" in joined:
         return (
             "Legal pages added and research method references embedded"
@@ -334,34 +340,10 @@ def page(lang: str, records: list[VersionRecord]) -> str:
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="{home}" aria-label="{html.escape(labels["brand"])}">
-        <img src="icon.svg" alt="" />
-        <span>SEiN Knowledge Hub</span>
-      </a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="{labels["theme_label"]}" aria-live="polite"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg><span>Auto</span></button>
-      <nav class="language-switch" aria-label="language">
-        {switch}
-      </nav>
-    </header>
+    <sein-header></sein-header>
 
     <div class="page">
-      <aside class="contents" aria-label="wiki pages">
-        <form class="sidebar-search" role="search">
-          <label for="wikiSearch">{labels["search_label"]}</label>
-          <input id="wikiSearch" type="search" autocomplete="off" placeholder="{labels["search_placeholder"]}" />
-          <div id="wikiSearchResults" class="search-results" hidden></div>
-        </form>
-        <h2>{labels["pages"]}</h2>
-        <ul class="page-nav">
-{nav}
-        </ul>
-        <div class="sidebar-note">
-          <strong>{labels["issue_title"]}</strong>
-          <p>{labels["issue_text"]}</p>
-          <a href="https://github.com/ywp-sein/sein_knowledge_hub/issues">{labels["issue_link"]}</a>
-        </div>
-      </aside>
+      <sein-sidebar></sein-sidebar>
 
       <main class="article">
         <article>
@@ -410,6 +392,7 @@ def page(lang: str, records: list[VersionRecord]) -> str:
         </article>
       </main>
     </div>
+    <script src="components.js"></script>
     <script src="resources.js"></script>
     <script src="search-index.js"></script>
     <script src="app.js"></script>
