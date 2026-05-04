@@ -175,11 +175,11 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
-    if "how-to-have-hope-to-help" in joined:
+    if "how-to-change-society" in joined or "how-to-have-hope-to-help" in joined:
         return (
-            "Some Hows category added with a hope-to-help reflective page"
+            "How to change society page revised with responsibility for words and deeds"
             if lang == "en"
-            else "Kategorie Einige Wie-Fragen mit Reflexionsseite zu Hoffnung und Hilfe ergänzt"
+            else "Wie man Gesellschaft verändert um Verantwortung für Worte und Taten ergänzt"
         )
     if "homelessness-organizations-berlin" in joined:
         return (

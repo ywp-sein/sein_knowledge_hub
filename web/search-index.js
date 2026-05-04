@@ -17,11 +17,11 @@ window.SEIN_SEARCH_INDEX = [
   },
   {
     lang: "en",
-    title: "How to have hope to help",
-    url: "how-to-have-hope-to-help.html",
+    title: "How to change society",
+    url: "how-to-change-society.html",
     category: "Some Hows",
-    summary: "A reflective method for turning from self-protection toward reality, others, and hope-filled help.",
-    keywords: "hope help heart outward motivated reasoning cognitive dissonance self justification reality others God service care",
+    summary: "A simple posture for changing ourselves first, turning complaint into questions, and acting for future generations.",
+    keywords: "change society social change self change complaint questions concerns solutions collective voices future generations hope responsibility",
   },
   {
     lang: "en",
@@ -113,11 +113,11 @@ window.SEIN_SEARCH_INDEX = [
   },
   {
     lang: "de",
-    title: "Wie man Hoffnung behält, um zu helfen",
-    url: "how-to-have-hope-to-help.de.html",
+    title: "Wie man Gesellschaft verändert",
+    url: "how-to-change-society.de.html",
     category: "Einige Wie-Fragen",
-    summary: "Eine reflektierende Methode, um sich von Selbstschutz hin zu Wirklichkeit, anderen Menschen und hoffnungsvoller Hilfe zu wenden.",
-    keywords: "Hoffnung helfen Herz nach außen motiviertes Schlussfolgern kognitive Dissonanz Selbstrechtfertigung Wirklichkeit andere Gott Dienst Fürsorge",
+    summary: "Eine einfache Haltung, um zuerst uns selbst zu verändern, Beschwerde in Fragen zu verwandeln und für kommende Generationen zu handeln.",
+    keywords: "Gesellschaft verändern sozialer Wandel Selbstveränderung Beschwerde Fragen Anliegen Lösungen gemeinsame Stimmen Zukunft Generationen Hoffnung Verantwortung",
   },
   {
     lang: "de",
