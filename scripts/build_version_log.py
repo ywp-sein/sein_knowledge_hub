@@ -181,6 +181,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
             if lang == "en"
             else "Rechts-, Datenschutz- und Quellenhinweise geschärft und Sidebar-Kategorien einklappbar gemacht"
         )
+    if "styles.css" in joined and "components.js" not in joined:
+        return (
+            "Phone browser layout improved for header, sidebar, infoboxes, and tables"
+            if lang == "en"
+            else "Layout für Smartphone-Browser bei Header, Sidebar, Infoboxen und Tabellen verbessert"
+        )
     if "license" in joined and "privacy" in joined:
         return (
             "Privacy transparency expanded and source-use guidance added to license page"

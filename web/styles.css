@@ -104,6 +104,15 @@ a:hover {
   text-decoration: underline;
 }
 
+a,
+dd,
+td,
+th,
+p,
+li {
+  overflow-wrap: anywhere;
+}
+
 button,
 input {
   font: inherit;
@@ -564,6 +573,7 @@ h3 {
 
 .table-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .section-title-row {
@@ -691,13 +701,73 @@ h3 {
 }
 
 @media (max-width: 720px) {
-  .site-header,
+  body {
+    font-size: 16px;
+  }
+
+  .site-header {
+    grid-template-columns: 1fr auto auto;
+    gap: 8px;
+    min-height: 54px;
+    padding: 8px 12px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .brand span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .language-switch,
+  .theme-toggle {
+    justify-self: end;
+  }
+
+  .theme-toggle {
+    min-height: 34px;
+    padding: 4px 7px;
+  }
+
+  .language-switch a {
+    min-width: 34px;
+    padding: 4px 7px;
+  }
+
   .page {
-    padding: 14px;
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .contents {
+    padding: 10px;
+    border: 1px solid var(--soft-line);
+    background: var(--surface);
+  }
+
+  .sidebar-search input {
+    min-height: 40px;
+  }
+
+  .page-nav summary {
+    min-height: 40px;
+  }
+
+  .page-nav a {
+    padding: 8px;
   }
 
   .article article {
-    padding: 18px;
+    min-height: auto;
+    padding: 18px 16px 28px;
   }
 
   .infobox {
@@ -706,7 +776,78 @@ h3 {
     margin: 16px 0;
   }
 
+  .infobox div {
+    grid-template-columns: minmax(96px, 34%) minmax(0, 1fr);
+  }
+
+  .fact-table,
+  .directory-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fact-table th,
+  .fact-table td,
+  .directory-table th,
+  .directory-table td {
+    min-width: 140px;
+  }
+
+  .section-title-row {
+    display: grid;
+    align-items: start;
+    gap: 4px;
+  }
+
+  #resultCount {
+    padding-bottom: 0;
+  }
+
+  .legal-list div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
   h1 {
     font-size: 30px;
+  }
+}
+
+@media (max-width: 460px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .theme-toggle {
+    grid-column: 1 / 2;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .language-switch {
+    grid-column: 2 / 3;
+    grid-row: 2;
+  }
+
+  .article article {
+    padding: 16px 12px 24px;
+  }
+
+  .infobox div {
+    grid-template-columns: 1fr;
+  }
+
+  .infobox dt {
+    padding-bottom: 2px;
+  }
+
+  .infobox dd {
+    padding-top: 2px;
+  }
+
+  h1 {
+    font-size: 26px;
   }
 }
