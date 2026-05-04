@@ -61,7 +61,7 @@ window.SEIN_SEARCH_INDEX = [
     url: "knowledge-hub-next-steps.html",
     category: "Knowledge Hub development",
     summary: "Possible improvements and next development steps for the Knowledge Hub website.",
-    keywords: "next steps improvements development roadmap future categories search translation",
+    keywords: "next steps improvements development roadmap future categories search translation labels source sources issues",
   },
   {
     lang: "de",
@@ -125,6 +125,6 @@ window.SEIN_SEARCH_INDEX = [
     url: "knowledge-hub-next-steps.de.html",
     category: "Entwicklung des Knowledge Hub",
     summary: "Mögliche Verbesserungen und nächste Entwicklungsschritte für die Knowledge-Hub-Website.",
-    keywords: "nächste Schritte Verbesserungen Entwicklung Roadmap zukünftige Kategorien Suche Übersetzung",
+    keywords: "nächste Schritte Verbesserungen Entwicklung Roadmap zukünftige Kategorien Suche Übersetzung Labels Quelle Quellen Issues",
   },
 ];

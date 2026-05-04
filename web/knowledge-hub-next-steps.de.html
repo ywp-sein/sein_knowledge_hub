@@ -55,7 +55,7 @@
             <h1>Nächste Schritte für den Knowledge Hub</h1>
             <p class="subtitle">Mögliche Verbesserungen für die nächste Entwicklungsphase.</p>
             <p class="revision-meta">
-              Zuletzt überarbeitet: <time datetime="2026-05-04T09:47:00+02:00">4. Mai 2026, 09:47 CEST</time>
+              Zuletzt überarbeitet: <time datetime="2026-05-04T11:42:00+02:00">4. Mai 2026, 11:42 CEST</time>
             </p>
           </header>
 
@@ -65,7 +65,7 @@
               <div><dt>Seitentyp</dt><dd>Verbesserungsplan</dd></div>
               <div><dt>Zweck</dt><dd>Sichtbarer Arbeitsvorrat für den Knowledge Hub</dd></div>
               <div><dt>Verwandte Seite</dt><dd><a href="knowledge-hub-version-log.de.html">Versionsprotokoll</a></dd></div>
-              <div><dt>Zuletzt überarbeitet</dt><dd><time datetime="2026-05-04T09:47:00+02:00">4. Mai 2026, 09:47 CEST</time></dd></div>
+              <div><dt>Zuletzt überarbeitet</dt><dd><time datetime="2026-05-04T11:42:00+02:00">4. Mai 2026, 11:42 CEST</time></dd></div>
             </dl>
           </aside>
 
@@ -80,6 +80,129 @@
               <li>Eine Seitenvorlage für künftige Themenkategorien ergänzen.</li>
               <li>Barrierefreiheit prüfen: Tastaturnavigation, Kontrast, Tabellen auf mobilen Geräten und Sprachattribute.</li>
             </ul>
+          </section>
+
+          <section>
+            <h2>GitHub-Issue-Labelset</h2>
+            <p>
+              <code>source:*</code> wird für Fakten, Zitate, Links, Organisationen, Dienste und
+              Ressourceneinträge verwendet. <code>content:*</code> wird nur für Formulierung und
+              Artikelstruktur verwendet, damit Personen beim Erstellen von Issues nicht zwischen
+              überlappenden Labels wählen müssen.
+            </p>
+            <div class="table-wrap">
+              <table class="fact-table">
+                <thead>
+                  <tr>
+                    <th>Label</th>
+                    <th>Farbe</th>
+                    <th>Verwenden, wenn</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>content: wording clarity</code></td>
+                    <td><code>#d73a4a</code></td>
+                    <td>Formulierung, Lesbarkeit, Erklärung oder Ton verbessert werden soll, ohne die faktische Bedeutung zu ändern.</td>
+                  </tr>
+                  <tr>
+                    <td><code>content: structure</code></td>
+                    <td><code>#d73a4a</code></td>
+                    <td>Überschriften, Abschnitte, Zusammenfassungen, Tabellen oder Seitenfluss neu geordnet werden sollen, ohne externe Fakten zu ergänzen.</td>
+                  </tr>
+                  <tr>
+                    <td><code>source: needed</code></td>
+                    <td><code>#fbca04</code></td>
+                    <td>Eine Behauptung, Zahl, ein Zitat, eine politische Aussage, ein Dienstdetail oder ein Verzeichniseintrag eine Quelle braucht.</td>
+                  </tr>
+                  <tr>
+                    <td><code>source: verify</code></td>
+                    <td><code>#fbca04</code></td>
+                    <td>Eine vorhandene Quelle, Organisation, ein Dienst, eine Telefonnummer, ein Link oder ein Verzeichniseintrag geprüft werden muss.</td>
+                  </tr>
+                  <tr>
+                    <td><code>source: add</code></td>
+                    <td><code>#fbca04</code></td>
+                    <td>Eine nützliche externe Quelle ergänzt werden soll, zum Beispiel offizielle Seite, Bericht, Datensatz, Gesetz, Organisation, Dienst oder Hilfsangebot.</td>
+                  </tr>
+                  <tr>
+                    <td><code>source: update</code></td>
+                    <td><code>#fbca04</code></td>
+                    <td>Eine vorhandene Quelle oder ein Eintrag geänderte Details hat, zum Beispiel Datum, Ort, Voraussetzungen, Kontakt, Verfügbarkeit oder Umfang.</td>
+                  </tr>
+                  <tr>
+                    <td><code>source: remove</code></td>
+                    <td><code>#fbca04</code></td>
+                    <td>Eine Quelle oder ein Eintrag defekt, doppelt, veraltet, geschlossen, unverlässlich, nicht relevant oder nicht empfehlenswert ist.</td>
+                  </tr>
+                  <tr>
+                    <td><code>translation: missing</code></td>
+                    <td><code>#1d76db</code></td>
+                    <td>Deutscher oder englischer Text ergänzt werden muss, weil eine Sprachversion unvollständig ist oder fehlt.</td>
+                  </tr>
+                  <tr>
+                    <td><code>translation: mismatch</code></td>
+                    <td><code>#1d76db</code></td>
+                    <td>Englische und deutsche Seiten nicht dieselbe Bedeutung oder Detailtiefe enthalten.</td>
+                  </tr>
+                  <tr>
+                    <td><code>translation: wording</code></td>
+                    <td><code>#1d76db</code></td>
+                    <td>Der deutsche oder englische Übersetzungsstil verbessert werden soll, ohne den Inhalt zu ändern.</td>
+                  </tr>
+                  <tr>
+                    <td><code>topic: homelessness</code></td>
+                    <td><code>#5319e7</code></td>
+                    <td>Das Issue zur Kategorie Wohnungslosigkeit oder ihren Unterseiten gehört.</td>
+                  </tr>
+                  <tr>
+                    <td><code>topic: research-method</code></td>
+                    <td><code>#5319e7</code></td>
+                    <td>Das Issue zu Methoden, Abläufen oder Hinweisen für die Recherche sozialer Themen gehört.</td>
+                  </tr>
+                  <tr>
+                    <td><code>site: search</code></td>
+                    <td><code>#a2eeef</code></td>
+                    <td>Verbesserungen oder Fehler der Wiki-Suche betrifft.</td>
+                  </tr>
+                  <tr>
+                    <td><code>site: navigation</code></td>
+                    <td><code>#a2eeef</code></td>
+                    <td>Sidebar, Links, Seitenstruktur oder Routing betrifft.</td>
+                  </tr>
+                  <tr>
+                    <td><code>site: accessibility</code></td>
+                    <td><code>#a2eeef</code></td>
+                    <td>Barrierefreiheit betrifft, zum Beispiel Tastaturbedienung, Kontrast, Semantik oder Screenreader.</td>
+                  </tr>
+                  <tr>
+                    <td><code>site: design</code></td>
+                    <td><code>#a2eeef</code></td>
+                    <td>Layout, Lesbarkeit, Typografie, Abstände oder visuelle Oberfläche betrifft.</td>
+                  </tr>
+                  <tr>
+                    <td><code>feature: request</code></td>
+                    <td><code>#c5def5</code></td>
+                    <td>Eine neue Funktion, ein Seitenverhalten, Tool, Ablauf, eine Automatisierung oder Verbesserung vorgeschlagen wird.</td>
+                  </tr>
+                  <tr>
+                    <td><code>status: needs review</code></td>
+                    <td><code>#ededed</code></td>
+                    <td>Faktenprüfung, Quellenprüfung, Übersetzungsprüfung oder Entscheidung durch Maintainer nötig ist.</td>
+                  </tr>
+                  <tr>
+                    <td><code>priority: high</code></td>
+                    <td><code>#b60205</code></td>
+                    <td>Ein wichtiges Issue Genauigkeit, Nutzbarkeit, Sicherheit oder öffentliches Vertrauen betrifft.</td>
+                  </tr>
+                  <tr>
+                    <td><code>priority: low</code></td>
+                    <td><code>#cfd3d7</code></td>
+                    <td>Eine nützliche Verbesserung, aber nicht dringend.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <section>

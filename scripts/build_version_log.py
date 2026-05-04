@@ -175,6 +175,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if "knowledge-hub-next-steps" in joined:
+        return (
+            "Issue label set simplified to avoid content and source overlap"
+            if lang == "en"
+            else "Issue-Labelset vereinfacht, um Überschneidungen zwischen Inhalt und Quellen zu vermeiden"
+        )
     if "search-index.js" in joined or "wikiSearch" in joined or "app.js" in joined:
         return (
             "Global sidebar search and GitHub issue feedback link"
