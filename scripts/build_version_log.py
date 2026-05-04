@@ -41,21 +41,33 @@ def git_records() -> list[VersionRecord]:
     except (subprocess.CalledProcessError, FileNotFoundError):
         return []
 
-    records: list[VersionRecord] = []
+    entries: list[tuple[str, str, str, list[str]]] = []
     for line in raw.splitlines():
         if not line:
             continue
         full_sha, committed_at, subject = line.split("\x1f", 2)
         files = run_git(["show", "--name-only", "--format=", "--no-renames", full_sha]).splitlines()
+        entries.append((full_sha, committed_at, subject, [file for file in files if file]))
+
+    total = len(entries)
+    records: list[VersionRecord] = []
+    for index, (_full_sha, committed_at, subject, files) in enumerate(entries):
         records.append(
             VersionRecord(
-                version=full_sha[:7],
+                version=semantic_version(total - index),
                 timestamp=datetime.fromisoformat(committed_at).astimezone(BERLIN),
                 subject=subject,
-                files=[file for file in files if file],
+                files=files,
             ),
         )
     return records
+
+
+def semantic_version(number: int) -> str:
+    major = number // 100
+    minor = (number % 100) // 10
+    patch = number % 10
+    return f"{major}.{minor}.{patch}"
 
 
 def dirty_record() -> VersionRecord | None:
@@ -69,7 +81,7 @@ def dirty_record() -> VersionRecord | None:
     if not files:
         return None
     return VersionRecord(
-        version="working tree",
+        version="0.0.0",
         timestamp=datetime.now(BERLIN),
         subject="Uncommitted Knowledge Hub update",
         files=files,
@@ -137,37 +149,49 @@ def format_date(dt: datetime, lang: str) -> str:
     return f"{dt.day} {months[dt.month]} {dt.year}, {dt:%H:%M} CEST"
 
 
-def file_summary(files: list[str], lang: str) -> str:
-    visible = files[:6]
-    escaped = [f"<code>{html.escape(file)}</code>" for file in visible]
-    more = len(files) - len(visible)
-    prefix = "Changed files: " if lang == "en" else "Geänderte Dateien: "
-    suffix = ""
-    if more > 0:
-        suffix = f" and {more} more" if lang == "en" else f" und {more} weitere"
-    return prefix + ", ".join(escaped) + suffix
-
-
 def rows(records: list[VersionRecord], lang: str) -> str:
     if not records:
-        empty = "No git history found." if lang == "en" else "Keine Git-Historie gefunden."
-        return f"<tr><td colspan=\"5\">{empty}</td></tr>"
+        empty = "No revision history found." if lang == "en" else "Keine Revisionshistorie gefunden."
+        return f"<tr><td colspan=\"4\">{empty}</td></tr>"
     rendered = []
     for record in records:
+        content = updated_content(record, lang)
         rendered.append(
             "\n".join(
                 [
                     "                  <tr>",
-                    f"                    <td>{html.escape(format_date(record.timestamp, lang))}</td>",
                     f"                    <td><code>{html.escape(record.version)}</code></td>",
+                    f"                    <td>{html.escape(format_date(record.timestamp, lang))}</td>",
                     f"                    <td>{html.escape(classify(record.files, lang))}</td>",
-                    f"                    <td>{html.escape(record.subject)}</td>",
-                    f"                    <td>{file_summary(record.files, lang)}</td>",
+                    f"                    <td>{html.escape(content)}</td>",
                     "                  </tr>",
                 ],
             ),
         )
     return "\n".join(rendered)
+
+
+def updated_content(record: VersionRecord, lang: str) -> str:
+    if not record.dirty:
+        return record.subject
+    joined = " ".join(record.files)
+    if "build_version_log.py" in joined and "homelessness-berlin" in joined:
+        return (
+            "Version log numbering and sidebar resource search layout"
+            if lang == "en"
+            else "Versionsnummerierung und Ressourcensuche in der Seitenleiste"
+        )
+    if "knowledge-hub-version-log" in joined:
+        return (
+            "Version log generated for the latest Knowledge Hub update"
+            if lang == "en"
+            else "Versionsprotokoll für die neueste Aktualisierung des Knowledge Hub erzeugt"
+        )
+    return (
+        "Draft update to Knowledge Hub content and layout"
+        if lang == "en"
+        else "Entwurfsaktualisierung von Inhalt und Layout des Knowledge Hub"
+    )
 
 
 def page(lang: str, records: list[VersionRecord]) -> str:
@@ -201,7 +225,7 @@ def page(lang: str, records: list[VersionRecord]) -> str:
             "purpose": "Zweck",
             "purpose_value": "Jede öffentliche Aktualisierung und ihre Inhalte festhalten",
             "rule": "Automatisierung",
-            "rule_value": "Diese Seite wird beim Deployment aus der Git-Historie erzeugt",
+            "rule_value": "Diese Seite wird beim Deployment aus der Revisionshistorie erzeugt",
             "how": "Nutzung dieser Seite",
             "how_text": "Diese Seite dokumentiert die Entwicklung des Knowledge Hub selbst. Jede Inhaltsänderung, Strukturänderung, Quellenprüfung, Übersetzung oder neue Kategorie erscheint hier als Versionseintrag.",
             "records": "Versionsaufzeichnungen",
@@ -209,7 +233,6 @@ def page(lang: str, records: list[VersionRecord]) -> str:
             "th_version": "Version",
             "th_area": "Bereich",
             "th_content": "Aktualisierter Inhalt",
-            "th_notes": "Notizen",
             "brand": "SEiN Knowledge Hub Startseite",
         }
     else:
@@ -238,7 +261,7 @@ def page(lang: str, records: list[VersionRecord]) -> str:
             "purpose": "Purpose",
             "purpose_value": "Record every public update and its changed content",
             "rule": "Automation",
-            "rule_value": "This page is generated from git history during deployment",
+            "rule_value": "This page is generated from revision history during deployment",
             "how": "How to use this page",
             "how_text": "This page records the development of the Knowledge Hub itself. Every content update, structural change, source refresh, translation update, or new category appears here as a version entry.",
             "records": "Version records",
@@ -246,7 +269,6 @@ def page(lang: str, records: list[VersionRecord]) -> str:
             "th_version": "Version",
             "th_area": "Area",
             "th_content": "Updated content",
-            "th_notes": "Notes",
             "brand": "SEiN Knowledge Hub home",
         }
     return f"""<!doctype html>
@@ -311,11 +333,10 @@ def page(lang: str, records: list[VersionRecord]) -> str:
               <table class="directory-table">
                 <thead>
                   <tr>
-                    <th>{labels["th_time"]}</th>
                     <th>{labels["th_version"]}</th>
+                    <th>{labels["th_time"]}</th>
                     <th>{labels["th_area"]}</th>
                     <th>{labels["th_content"]}</th>
-                    <th>{labels["th_notes"]}</th>
                   </tr>
                 </thead>
                 <tbody id="versionLogRows">
@@ -336,6 +357,7 @@ def main() -> None:
     records = git_records()
     dirty = dirty_record()
     if dirty:
+        dirty.version = semantic_version(len(records) + 1)
         records.insert(0, dirty)
     (WEB / "knowledge-hub-version-log.html").write_text(page("en", records), encoding="utf-8")
     (WEB / "knowledge-hub-version-log.de.html").write_text(page("de", records), encoding="utf-8")

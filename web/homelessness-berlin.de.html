@@ -23,6 +23,10 @@
 
     <div class="page">
       <aside class="contents" aria-label="Wiki-Seiten">
+        <form class="sidebar-search" role="search">
+          <label for="resourceSearch">Ressourcen suchen</label>
+          <input id="resourceSearch" type="search" autocomplete="off" placeholder="Unterkunft, offiziell..." />
+        </form>
         <h2>Seiten</h2>
         <ul class="page-nav">
           <li><a href="index.de.html">Startseite</a></li>
@@ -115,6 +119,28 @@
             </ul>
           </section>
 
+          <section id="directory">
+            <div class="section-title-row">
+              <h2>Ressourcenverzeichnis</h2>
+              <span id="resultCount">0 Einträge</span>
+            </div>
+            <p>Die folgende Tabelle ist das aktuelle Ressourcenverzeichnis für diese Themenseite.</p>
+            <div class="table-wrap">
+              <table class="directory-table">
+                <thead>
+                  <tr>
+                    <th>Eintrag</th>
+                    <th>Typ</th>
+                    <th>Zielgruppe</th>
+                    <th>Nächster Schritt</th>
+                    <th>Quelle</th>
+                  </tr>
+                </thead>
+                <tbody id="resourceRows"></tbody>
+              </table>
+            </div>
+          </section>
+
           <section>
             <h2>Quellen</h2>
             <ol class="references">
@@ -126,5 +152,7 @@
         </article>
       </main>
     </div>
+    <script src="resources.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

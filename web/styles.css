@@ -63,10 +63,6 @@ input {
   backdrop-filter: blur(10px);
 }
 
-.site-header:has(.site-search) {
-  grid-template-columns: 240px minmax(220px, 520px) 1fr;
-}
-
 .brand {
   display: inline-flex;
   align-items: center;
@@ -85,17 +81,17 @@ input {
   height: 34px;
 }
 
-.site-search {
+.sidebar-search {
   display: grid;
   gap: 3px;
 }
 
-.site-search label {
+.sidebar-search label {
   color: var(--muted);
   font-size: 12px;
 }
 
-.site-search input {
+.sidebar-search input {
   width: 100%;
   min-height: 34px;
   padding: 5px 9px;
@@ -105,7 +101,7 @@ input {
   color: var(--ink);
 }
 
-.site-search input:focus-visible {
+.sidebar-search input:focus-visible {
   outline: 2px solid var(--link);
   outline-offset: 1px;
 }
@@ -161,6 +157,10 @@ input {
   overflow: auto;
   color: var(--muted);
   font-size: 14px;
+}
+
+.sidebar-search {
+  margin-bottom: 16px;
 }
 
 .contents h2 {

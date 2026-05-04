@@ -34,7 +34,7 @@ The development version log pages are generated from git history:
 python3 scripts/build_version_log.py
 ```
 
-GitHub Pages runs this script during deployment, so each pushed update appears with a commit version, timestamp, message, and changed files. Use clear commit messages because they become the public update summary.
+GitHub Pages runs this script during deployment, so each pushed update appears with a numbered version, timestamp, area, and updated content summary. Use clear commit messages because they become the public update summary.
 
 ## Local preview
 
