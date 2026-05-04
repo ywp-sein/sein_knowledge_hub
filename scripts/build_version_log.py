@@ -175,6 +175,18 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if ("privacy" in joined or "license" in joined) and "components.js" in joined and "styles.css" in joined:
+        return (
+            "Legal/privacy source-use guidance tightened and sidebar categories made foldable"
+            if lang == "en"
+            else "Rechts-, Datenschutz- und Quellenhinweise geschärft und Sidebar-Kategorien einklappbar gemacht"
+        )
+    if "license" in joined and "privacy" in joined:
+        return (
+            "Privacy transparency expanded and source-use guidance added to license page"
+            if lang == "en"
+            else "Datenschutzhinweise erweitert und Quellenhinweise zur Lizenzseite ergänzt"
+        )
     if "components.js" in joined and "styles.css" in joined:
         return (
             "Sidebar categories made foldable and duplicate infobox revision rows removed"
