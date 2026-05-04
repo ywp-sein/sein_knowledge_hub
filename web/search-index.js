@@ -37,7 +37,7 @@ window.SEIN_SEARCH_INDEX = [
     url: "homelessness-organizations-berlin.html",
     category: "Homelessness",
     summary: "A starter list of Berlin social organizations and services working with homelessness.",
-    keywords: "organizations Berlin homeless social services Stadtmission Caritas Diakonie Berliner Kaeltehilfe",
+    keywords: "organizations Berlin homeless social services Stadtmission Caritas Diakonie Berliner Kaeltehilfe Teen Challenge Berliner Help Stiftung Salvation Army Heilsarmee",
   },
   {
     lang: "en",
@@ -125,7 +125,7 @@ window.SEIN_SEARCH_INDEX = [
     url: "homelessness-organizations-berlin.de.html",
     category: "Wohnungslosigkeit",
     summary: "Eine Startliste Berliner Organisationen und Dienste im Bereich Wohnungslosigkeit.",
-    keywords: "Organisationen Berlin wohnungslos soziale Dienste Stadtmission Caritas Diakonie Berliner Kältehilfe",
+    keywords: "Organisationen Berlin wohnungslos soziale Dienste Stadtmission Caritas Diakonie Berliner Kältehilfe Teen Challenge Berliner Help Stiftung Salvation Army Heilsarmee",
   },
   {
     lang: "de",

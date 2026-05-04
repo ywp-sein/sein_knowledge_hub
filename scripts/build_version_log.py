@@ -175,6 +175,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if "homelessness-organizations-berlin" in joined:
+        return (
+            "Teen Challenge and Salvation Army sources added to Berlin organization list"
+            if lang == "en"
+            else "Teen Challenge und Heilsarmee mit Quellen zur Berliner Organisationsliste ergänzt"
+        )
     if ("privacy" in joined or "license" in joined) and "components.js" in joined and "styles.css" in joined:
         return (
             "Legal/privacy source-use guidance tightened and sidebar categories made foldable"
