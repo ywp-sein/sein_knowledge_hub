@@ -199,8 +199,9 @@ input {
   justify-self: end;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   min-height: 31px;
-  min-width: 70px;
+  min-width: 86px;
   padding: 4px 10px;
   border: 1px solid var(--line);
   border-radius: 2px;
@@ -208,6 +209,16 @@ input {
   color: var(--ink);
   font-size: 13px;
   cursor: pointer;
+}
+
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
 
 .theme-toggle:hover {

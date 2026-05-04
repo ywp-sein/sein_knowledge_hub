@@ -175,11 +175,11 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
-    if "data-theme" in joined or "themeToggle" in joined or ("web/styles.css" in joined and "web/app.js" in joined):
+    if "themeIcons" in joined or "themeToggle" in joined or ("web/styles.css" in joined and "web/app.js" in joined):
         return (
-            "Light and dark theme toggle moved before language switch"
+            "Theme toggle uses open-source-style icons before language switch"
             if lang == "en"
-            else "Hell-Dunkel-Schalter vor die Sprachauswahl verschoben"
+            else "Darstellungsschalter nutzt Open-Source-Icons vor der Sprachauswahl"
         )
     if "knowledge-hub-next-steps" in joined:
         return (
@@ -313,7 +313,7 @@ def page(lang: str, records: list[VersionRecord]) -> str:
         <img src="icon.svg" alt="" />
         <span>SEiN Knowledge Hub</span>
       </a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="{labels["theme_label"]}" aria-live="polite">Auto</button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="{labels["theme_label"]}" aria-live="polite"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg><span>Auto</span></button>
       <nav class="language-switch" aria-label="language">
         {switch}
       </nav>
