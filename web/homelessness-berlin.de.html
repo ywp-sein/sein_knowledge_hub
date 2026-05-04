@@ -24,8 +24,9 @@
     <div class="page">
       <aside class="contents" aria-label="Wiki-Seiten">
         <form class="sidebar-search" role="search">
-          <label for="resourceSearch">Ressourcen suchen</label>
-          <input id="resourceSearch" type="search" autocomplete="off" placeholder="Unterkunft, offiziell..." />
+          <label for="wikiSearch">Wiki durchsuchen</label>
+          <input id="wikiSearch" type="search" autocomplete="off" placeholder="Wohnungslosigkeit, Politik..." />
+          <div id="wikiSearchResults" class="search-results" hidden></div>
         </form>
         <h2>Seiten</h2>
         <ul class="page-nav">
@@ -153,6 +154,7 @@
       </main>
     </div>
     <script src="resources.js"></script>
+    <script src="search-index.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -175,11 +175,11 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
-    if "build_version_log.py" in joined and "homelessness-berlin" in joined:
+    if "search-index.js" in joined or "wikiSearch" in joined or "app.js" in joined:
         return (
-            "Version log numbering and sidebar resource search layout"
+            "Global sidebar search across Knowledge Hub pages"
             if lang == "en"
-            else "Versionsnummerierung und Ressourcensuche in der Seitenleiste"
+            else "Globale Suche in der Seitenleiste über alle Knowledge-Hub-Seiten"
         )
     if "knowledge-hub-version-log" in joined:
         return (
@@ -215,6 +215,8 @@ def page(lang: str, records: list[VersionRecord]) -> str:
           <li><a class="subpage-link" href="knowledge-hub-next-steps.de.html">Nächste Schritte</a></li>"""
         labels = {
             "pages": "Seiten",
+            "search_label": "Wiki durchsuchen",
+            "search_placeholder": "Wohnungslosigkeit, Politik...",
             "namespace": "Entwicklungsseite",
             "h1": "Versionsprotokoll des Knowledge Hub",
             "subtitle": "Ein automatisch erzeugtes Protokoll der Website-Revisionen und Inhaltsaktualisierungen.",
@@ -251,6 +253,8 @@ def page(lang: str, records: list[VersionRecord]) -> str:
           <li><a class="subpage-link" href="knowledge-hub-next-steps.html">Next steps</a></li>"""
         labels = {
             "pages": "Pages",
+            "search_label": "Search the wiki",
+            "search_placeholder": "homelessness, policy...",
             "namespace": "Development page",
             "h1": "Knowledge Hub version log",
             "subtitle": "An automatically generated record of website revisions and content updates.",
@@ -295,6 +299,11 @@ def page(lang: str, records: list[VersionRecord]) -> str:
 
     <div class="page">
       <aside class="contents" aria-label="wiki pages">
+        <form class="sidebar-search" role="search">
+          <label for="wikiSearch">{labels["search_label"]}</label>
+          <input id="wikiSearch" type="search" autocomplete="off" placeholder="{labels["search_placeholder"]}" />
+          <div id="wikiSearchResults" class="search-results" hidden></div>
+        </form>
         <h2>{labels["pages"]}</h2>
         <ul class="page-nav">
 {nav}
@@ -348,6 +357,9 @@ def page(lang: str, records: list[VersionRecord]) -> str:
         </article>
       </main>
     </div>
+    <script src="resources.js"></script>
+    <script src="search-index.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
 """

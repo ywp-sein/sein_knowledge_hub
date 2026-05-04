@@ -1,8 +1,40 @@
 const resources = window.SEIN_RESOURCES || [];
-const searchInput = document.querySelector("#resourceSearch");
+const searchIndex = window.SEIN_SEARCH_INDEX || [];
+const searchInput = document.querySelector("#wikiSearch");
+const searchResults = document.querySelector("#wikiSearchResults");
 const resourceRows = document.querySelector("#resourceRows");
 const resultCount = document.querySelector("#resultCount");
 const isGerman = document.documentElement.lang === "de";
+
+function renderSiteSearch() {
+  if (!searchInput || !searchResults) return;
+  const query = normalize(searchInput.value);
+  if (!query) {
+    searchResults.hidden = true;
+    searchResults.innerHTML = "";
+    return;
+  }
+
+  const visible = searchIndex
+    .filter((entry) => entry.lang === document.documentElement.lang)
+    .filter((entry) => searchablePage(entry).includes(query))
+    .slice(0, 6);
+
+  searchResults.hidden = false;
+  searchResults.innerHTML = visible.length
+    ? visible.map(renderSearchResult).join("")
+    : `<p>${isGerman ? "Keine passende Wikiseite gefunden." : "No matching wiki page found."}</p>`;
+}
+
+function renderSearchResult(entry) {
+  return `
+    <a class="search-result" href="${entry.url}">
+      <strong>${escapeHtml(entry.title)}</strong>
+      <span>${escapeHtml(entry.category)}</span>
+      <small>${escapeHtml(entry.summary)}</small>
+    </a>
+  `;
+}
 
 function renderResources() {
   if (!searchInput || !resourceRows || !resultCount) return;
@@ -60,6 +92,10 @@ function searchable(resource) {
   );
 }
 
+function searchablePage(entry) {
+  return normalize([entry.title, entry.category, entry.summary, entry.keywords].join(" "));
+}
+
 function normalize(value) {
   return String(value || "")
     .toLowerCase()
@@ -75,5 +111,11 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-if (searchInput) searchInput.addEventListener("input", renderResources);
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    renderSiteSearch();
+    renderResources();
+  });
+}
+renderSiteSearch();
 renderResources();

@@ -83,7 +83,7 @@ input {
 
 .sidebar-search {
   display: grid;
-  gap: 3px;
+  gap: 6px;
 }
 
 .sidebar-search label {
@@ -161,6 +161,44 @@ input {
 
 .sidebar-search {
   margin-bottom: 16px;
+}
+
+.search-results {
+  display: grid;
+  gap: 6px;
+  padding-top: 2px;
+}
+
+.search-results[hidden] {
+  display: none;
+}
+
+.search-result {
+  display: grid;
+  gap: 1px;
+  padding: 7px 8px;
+  border: 1px solid var(--soft-line);
+  border-radius: 2px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.search-result:visited {
+  color: var(--ink);
+}
+
+.search-result:hover {
+  border-color: var(--line);
+  text-decoration: none;
+}
+
+.search-result span,
+.search-result small,
+.search-results p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
 }
 
 .contents h2 {
