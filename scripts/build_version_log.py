@@ -1,0 +1,345 @@
+#!/usr/bin/env python3
+"""Build the Knowledge Hub version log pages from git history."""
+
+from __future__ import annotations
+
+import html
+import os
+import subprocess
+from dataclasses import dataclass
+from datetime import datetime
+from pathlib import Path
+from zoneinfo import ZoneInfo
+
+
+ROOT = Path(__file__).resolve().parents[1]
+WEB = ROOT / "web"
+BERLIN = ZoneInfo("Europe/Berlin")
+MAX_COMMITS = 50
+
+
+@dataclass
+class VersionRecord:
+    version: str
+    timestamp: datetime
+    subject: str
+    files: list[str]
+    dirty: bool = False
+
+
+def run_git(args: list[str]) -> str:
+    return subprocess.check_output(["git", *args], cwd=ROOT, text=True).strip()
+
+
+def git_records() -> list[VersionRecord]:
+    try:
+        raw = run_git([
+            "log",
+            f"--max-count={MAX_COMMITS}",
+            "--pretty=format:%H%x1f%cI%x1f%s",
+        ])
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return []
+
+    records: list[VersionRecord] = []
+    for line in raw.splitlines():
+        if not line:
+            continue
+        full_sha, committed_at, subject = line.split("\x1f", 2)
+        files = run_git(["show", "--name-only", "--format=", "--no-renames", full_sha]).splitlines()
+        records.append(
+            VersionRecord(
+                version=full_sha[:7],
+                timestamp=datetime.fromisoformat(committed_at).astimezone(BERLIN),
+                subject=subject,
+                files=[file for file in files if file],
+            ),
+        )
+    return records
+
+
+def dirty_record() -> VersionRecord | None:
+    if os.environ.get("VERSION_LOG_INCLUDE_DIRTY") == "0":
+        return None
+    try:
+        raw = run_git(["status", "--porcelain"])
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+    files = [line[3:] for line in raw.splitlines() if len(line) > 3]
+    if not files:
+        return None
+    return VersionRecord(
+        version="working tree",
+        timestamp=datetime.now(BERLIN),
+        subject="Uncommitted Knowledge Hub update",
+        files=files,
+        dirty=True,
+    )
+
+
+def classify(files: list[str], lang: str) -> str:
+    joined = " ".join(files)
+    labels = {
+        "development": "Knowledge Hub development" if lang == "en" else "Entwicklung des Knowledge Hub",
+        "homelessness": "Homelessness" if lang == "en" else "Wohnungslosigkeit",
+        "research": "Research method" if lang == "en" else "Recherchemethode",
+        "main": "Main page" if lang == "en" else "Startseite",
+        "deploy": "Deployment" if lang == "en" else "Deployment",
+        "sources": "Source notes" if lang == "en" else "Quellennotizen",
+        "website": "Website" if lang == "en" else "Website",
+    }
+    if "knowledge-hub-" in joined or "build_version_log.py" in joined:
+        return labels["development"]
+    if "homelessness" in joined:
+        return labels["homelessness"]
+    if "research-social-issues" in joined:
+        return labels["research"]
+    if ".github/workflows" in joined or "service-worker" in joined:
+        return labels["deploy"]
+    if "web/index" in joined:
+        return labels["main"]
+    if "src/" in joined:
+        return labels["sources"]
+    return labels["website"]
+
+
+def format_date(dt: datetime, lang: str) -> str:
+    if lang == "de":
+      months = {
+          1: "Januar",
+          2: "Februar",
+          3: "März",
+          4: "April",
+          5: "Mai",
+          6: "Juni",
+          7: "Juli",
+          8: "August",
+          9: "September",
+          10: "Oktober",
+          11: "November",
+          12: "Dezember",
+      }
+      return f"{dt.day}. {months[dt.month]} {dt.year}, {dt:%H:%M} CEST"
+    months = {
+        1: "January",
+        2: "February",
+        3: "March",
+        4: "April",
+        5: "May",
+        6: "June",
+        7: "July",
+        8: "August",
+        9: "September",
+        10: "October",
+        11: "November",
+        12: "December",
+    }
+    return f"{dt.day} {months[dt.month]} {dt.year}, {dt:%H:%M} CEST"
+
+
+def file_summary(files: list[str], lang: str) -> str:
+    visible = files[:6]
+    escaped = [f"<code>{html.escape(file)}</code>" for file in visible]
+    more = len(files) - len(visible)
+    prefix = "Changed files: " if lang == "en" else "Geänderte Dateien: "
+    suffix = ""
+    if more > 0:
+        suffix = f" and {more} more" if lang == "en" else f" und {more} weitere"
+    return prefix + ", ".join(escaped) + suffix
+
+
+def rows(records: list[VersionRecord], lang: str) -> str:
+    if not records:
+        empty = "No git history found." if lang == "en" else "Keine Git-Historie gefunden."
+        return f"<tr><td colspan=\"5\">{empty}</td></tr>"
+    rendered = []
+    for record in records:
+        rendered.append(
+            "\n".join(
+                [
+                    "                  <tr>",
+                    f"                    <td>{html.escape(format_date(record.timestamp, lang))}</td>",
+                    f"                    <td><code>{html.escape(record.version)}</code></td>",
+                    f"                    <td>{html.escape(classify(record.files, lang))}</td>",
+                    f"                    <td>{html.escape(record.subject)}</td>",
+                    f"                    <td>{file_summary(record.files, lang)}</td>",
+                    "                  </tr>",
+                ],
+            ),
+        )
+    return "\n".join(rendered)
+
+
+def page(lang: str, records: list[VersionRecord]) -> str:
+    is_de = lang == "de"
+    revised = records[0].timestamp if records else datetime.now(BERLIN)
+    revised_label = format_date(revised, lang)
+    revised_iso = revised.isoformat(timespec="minutes")
+    if is_de:
+        title = "Versionsprotokoll · SEiN Knowledge Hub"
+        home = "index.de.html"
+        switch = '<a href="knowledge-hub-version-log.html">EN</a><a aria-current="page" href="knowledge-hub-version-log.de.html">DE</a>'
+        nav = """          <li><a href="index.de.html">Startseite</a></li>
+          <li><a href="research-social-issues.de.html">Wie man ein soziales Thema recherchiert</a></li>
+          <li class="page-nav-group">Wohnungslosigkeit</li>
+          <li><a class="subpage-link" href="homelessness-berlin.de.html">Überblick in Berlin</a></li>
+          <li><a class="subpage-link" href="homelessness-how-to-help.de.html">Wie man hilft</a></li>
+          <li><a class="subpage-link" href="homelessness-organizations-berlin.de.html">Organisationen in Berlin</a></li>
+          <li><a class="subpage-link" href="homelessness-policies-germany.de.html">Politik in Deutschland</a></li>
+          <li class="page-nav-group">Entwicklung des Knowledge Hub</li>
+          <li><a class="subpage-link" href="knowledge-hub-version-log.de.html" aria-current="page">Versionsprotokoll</a></li>
+          <li><a class="subpage-link" href="knowledge-hub-next-steps.de.html">Nächste Schritte</a></li>"""
+        labels = {
+            "pages": "Seiten",
+            "namespace": "Entwicklungsseite",
+            "h1": "Versionsprotokoll des Knowledge Hub",
+            "subtitle": "Ein automatisch erzeugtes Protokoll der Website-Revisionen und Inhaltsaktualisierungen.",
+            "revised": "Zuletzt überarbeitet",
+            "box": "Versionsprotokoll",
+            "type": "Seitentyp",
+            "type_value": "Automatisches Entwicklungsprotokoll",
+            "purpose": "Zweck",
+            "purpose_value": "Jede öffentliche Aktualisierung und ihre Inhalte festhalten",
+            "rule": "Automatisierung",
+            "rule_value": "Diese Seite wird beim Deployment aus der Git-Historie erzeugt",
+            "how": "Nutzung dieser Seite",
+            "how_text": "Diese Seite dokumentiert die Entwicklung des Knowledge Hub selbst. Jede Inhaltsänderung, Strukturänderung, Quellenprüfung, Übersetzung oder neue Kategorie erscheint hier als Versionseintrag.",
+            "records": "Versionsaufzeichnungen",
+            "th_time": "Revisionszeit",
+            "th_version": "Version",
+            "th_area": "Bereich",
+            "th_content": "Aktualisierter Inhalt",
+            "th_notes": "Notizen",
+            "brand": "SEiN Knowledge Hub Startseite",
+        }
+    else:
+        title = "Knowledge Hub version log · SEiN Knowledge Hub"
+        home = "index.html"
+        switch = '<a aria-current="page" href="knowledge-hub-version-log.html">EN</a><a href="knowledge-hub-version-log.de.html">DE</a>'
+        nav = """          <li><a href="index.html">Main page</a></li>
+          <li><a href="research-social-issues.html">How to research a social issue</a></li>
+          <li class="page-nav-group">Homelessness</li>
+          <li><a class="subpage-link" href="homelessness-berlin.html">Overview in Berlin</a></li>
+          <li><a class="subpage-link" href="homelessness-how-to-help.html">How to help</a></li>
+          <li><a class="subpage-link" href="homelessness-organizations-berlin.html">Organizations in Berlin</a></li>
+          <li><a class="subpage-link" href="homelessness-policies-germany.html">Policies in Germany</a></li>
+          <li class="page-nav-group">Knowledge Hub development</li>
+          <li><a class="subpage-link" href="knowledge-hub-version-log.html" aria-current="page">Version log</a></li>
+          <li><a class="subpage-link" href="knowledge-hub-next-steps.html">Next steps</a></li>"""
+        labels = {
+            "pages": "Pages",
+            "namespace": "Development page",
+            "h1": "Knowledge Hub version log",
+            "subtitle": "An automatically generated record of website revisions and content updates.",
+            "revised": "Last revised",
+            "box": "Version log",
+            "type": "Page type",
+            "type_value": "Automated development record",
+            "purpose": "Purpose",
+            "purpose_value": "Record every public update and its changed content",
+            "rule": "Automation",
+            "rule_value": "This page is generated from git history during deployment",
+            "how": "How to use this page",
+            "how_text": "This page records the development of the Knowledge Hub itself. Every content update, structural change, source refresh, translation update, or new category appears here as a version entry.",
+            "records": "Version records",
+            "th_time": "Revision time",
+            "th_version": "Version",
+            "th_area": "Area",
+            "th_content": "Updated content",
+            "th_notes": "Notes",
+            "brand": "SEiN Knowledge Hub home",
+        }
+    return f"""<!doctype html>
+<html lang="{lang}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f8f9fa" />
+    <title>{html.escape(title)}</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="{home}" aria-label="{html.escape(labels["brand"])}">
+        <img src="icon.svg" alt="" />
+        <span>SEiN Knowledge Hub</span>
+      </a>
+      <nav class="language-switch" aria-label="language">
+        {switch}
+      </nav>
+    </header>
+
+    <div class="page">
+      <aside class="contents" aria-label="wiki pages">
+        <h2>{labels["pages"]}</h2>
+        <ul class="page-nav">
+{nav}
+        </ul>
+      </aside>
+
+      <main class="article">
+        <article>
+          <header class="article-header">
+            <p class="namespace">{labels["namespace"]}</p>
+            <h1>{labels["h1"]}</h1>
+            <p class="subtitle">{labels["subtitle"]}</p>
+            <p class="revision-meta">
+              {labels["revised"]}: <time datetime="{revised_iso}">{html.escape(revised_label)}</time>
+            </p>
+          </header>
+
+          <aside class="infobox" aria-label="article summary">
+            <h2>{labels["box"]}</h2>
+            <dl>
+              <div><dt>{labels["type"]}</dt><dd>{labels["type_value"]}</dd></div>
+              <div><dt>{labels["purpose"]}</dt><dd>{labels["purpose_value"]}</dd></div>
+              <div><dt>{labels["rule"]}</dt><dd>{labels["rule_value"]}</dd></div>
+              <div><dt>{labels["revised"]}</dt><dd><time datetime="{revised_iso}">{html.escape(revised_label)}</time></dd></div>
+            </dl>
+          </aside>
+
+          <section>
+            <h2>{labels["how"]}</h2>
+            <p>{labels["how_text"]}</p>
+          </section>
+
+          <section>
+            <h2>{labels["records"]}</h2>
+            <div class="table-wrap">
+              <table class="directory-table">
+                <thead>
+                  <tr>
+                    <th>{labels["th_time"]}</th>
+                    <th>{labels["th_version"]}</th>
+                    <th>{labels["th_area"]}</th>
+                    <th>{labels["th_content"]}</th>
+                    <th>{labels["th_notes"]}</th>
+                  </tr>
+                </thead>
+                <tbody id="versionLogRows">
+{rows(records, lang)}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
+"""
+
+
+def main() -> None:
+    records = git_records()
+    dirty = dirty_record()
+    if dirty:
+        records.insert(0, dirty)
+    (WEB / "knowledge-hub-version-log.html").write_text(page("en", records), encoding="utf-8")
+    (WEB / "knowledge-hub-version-log.de.html").write_text(page("de", records), encoding="utf-8")
+
+
+if __name__ == "__main__":
+    main()
