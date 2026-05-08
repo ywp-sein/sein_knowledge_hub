@@ -1,4 +1,4 @@
-const CACHE_NAME = "sein-knowledge-hub-v41";
+const CACHE_NAME = "sein-knowledge-hub-v41-data-c92954e470";
 const ASSETS = [
   "./",
   "./index.html",
@@ -52,6 +52,19 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.pathname.endsWith("/assets/data/berlin-homelessness-organizations.json")) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          return response;
+        })
+        .catch(() => caches.match(event.request)),
+    );
+    return;
+  }
   if (event.request.mode === "navigate" || event.request.destination === "document") {
     event.respondWith(
       fetch(event.request)

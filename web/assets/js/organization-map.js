@@ -24,7 +24,7 @@
 
   const dataUrl = new URL("../data/berlin-homelessness-organizations.json", document.currentScript.src);
 
-  fetch(dataUrl)
+  fetch(dataUrl, { cache: "no-cache" })
     .then((response) => {
       if (!response.ok) throw new Error(`Map data request failed: ${response.status}`);
       return response.json();

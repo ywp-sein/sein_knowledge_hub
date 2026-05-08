@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -11,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "data/berlin-homelessness-organizations.json"
 PUBLIC_DATA_FILE = ROOT / "web/assets/data/berlin-homelessness-organizations.json"
+SERVICE_WORKER_FILE = ROOT / "web/service-worker.js"
 PAGES = {
     "en": ROOT / "web/homelessness/homelessness-organizations-berlin.html",
     "de": ROOT / "web/homelessness/homelessness-organizations-berlin.de.html",
@@ -103,6 +106,30 @@ def write_public_data(payload: dict, *, check: bool) -> bool:
     return True
 
 
+def cache_name_for(content: str) -> str:
+    digest = hashlib.sha256(content.encode("utf-8")).hexdigest()[:10]
+    return f'sein-knowledge-hub-v41-data-{digest}'
+
+
+def update_service_worker_cache_name(public_data_content: str, *, check: bool) -> bool:
+    service_worker = SERVICE_WORKER_FILE.read_text(encoding="utf-8")
+    cache_name = cache_name_for(public_data_content)
+    updated = re.sub(
+        r'const CACHE_NAME = "sein-knowledge-hub-v41(?:-data-[a-f0-9]{10})?";',
+        f'const CACHE_NAME = "{cache_name}";',
+        service_worker,
+        count=1,
+    )
+    if updated == service_worker:
+        if cache_name in service_worker:
+            return False
+        raise ValueError("service-worker.js cache name did not match the expected pattern")
+    if check:
+        return True
+    SERVICE_WORKER_FILE.write_text(updated, encoding="utf-8")
+    return True
+
+
 def replace_generated_block(page: Path, lang: str, rows: str) -> tuple[str, str]:
     original = page.read_text(encoding="utf-8")
     start = f"                  <!-- BEGIN generated:{MARKER_NAME}:{lang} -->"
@@ -123,7 +150,10 @@ def main() -> int:
     payload = load_data()
     organizations = payload["organizations"]
     stale_pages: list[str] = []
+    public_payload = public_map_data(payload)
+    public_data_content = json.dumps(public_payload, ensure_ascii=False, indent=2) + "\n"
     public_data_changed = write_public_data(payload, check=args.check)
+    service_worker_changed = update_service_worker_cache_name(public_data_content, check=args.check)
     for lang, page in PAGES.items():
         original, updated = replace_generated_block(page, lang, render_rows(lang, organizations))
         if args.check:
@@ -141,6 +171,11 @@ def main() -> int:
 
     if args.check and public_data_changed:
         print(f"Generated public data is stale: {PUBLIC_DATA_FILE.relative_to(ROOT)}", file=sys.stderr)
+        print("Run: python3 scripts/build_organization_tables.py", file=sys.stderr)
+        return 1
+
+    if args.check and service_worker_changed:
+        print(f"Service worker cache name is stale: {SERVICE_WORKER_FILE.relative_to(ROOT)}", file=sys.stderr)
         print("Run: python3 scripts/build_organization_tables.py", file=sys.stderr)
         return 1
 
