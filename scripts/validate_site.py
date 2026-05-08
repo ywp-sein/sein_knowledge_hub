@@ -19,6 +19,8 @@ REQUIRED_SHARED_ASSETS = {
     "./assets/js/resources.js",
     "./assets/js/search-index.js",
     "./assets/js/app.js",
+    "./assets/js/organization-map.js",
+    "./assets/data/berlin-homelessness-organizations.json",
     "./manifest.webmanifest",
     "./assets/icons/icon.svg",
 }

@@ -1,0 +1,203 @@
+{
+  "schema_version": "0.1.0",
+  "topic": "homelessness",
+  "location": {
+    "city": "Berlin",
+    "country": "Germany"
+  },
+  "last_reviewed": "2026-05-08T17:10:00+02:00",
+  "organizations": [
+    {
+      "id": "berliner-stadtmission",
+      "map_marker": 1,
+      "name": {
+        "en": "Berliner Stadtmission",
+        "de": "Berliner Stadtmission"
+      },
+      "address": {
+        "label": "Lehrter Straße 68, 10557 Berlin"
+      },
+      "coordinates": {
+        "latitude": 52.5287,
+        "longitude": 13.3649,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Cold aid, emergency overnight support, clothing, outreach, medical and social support",
+        "de": "Kältehilfe, Notübernachtung, Kleidung, mobile Hilfe, medizinische und soziale Unterstützung"
+      },
+      "source": {
+        "label": "Berliner Stadtmission: Armut und Wohnungslosigkeit",
+        "url": "https://www.berliner-stadtmission.de/angebote/armut-und-wohnungslosigkeit"
+      }
+    },
+    {
+      "id": "drk-berlin-waermebus",
+      "map_marker": 2,
+      "name": {
+        "en": "DRK Berlin Wärmebus",
+        "de": "DRK Berlin Wärmebus"
+      },
+      "address": {
+        "label": "Citywide mobile outreach"
+      },
+      "coordinates": {
+        "latitude": 52.52,
+        "longitude": 13.405,
+        "precision": "citywide-placeholder"
+      },
+      "focus": {
+        "en": "Winter outreach",
+        "de": "Winterliche Straßensozialarbeit"
+      },
+      "source": {
+        "label": "DRK Berlin: Wärmebus",
+        "url": "https://www.drk-berlin.de/start/ehrenamt/waermebus.html"
+      }
+    },
+    {
+      "id": "berliner-obdachlosenhilfe",
+      "map_marker": 3,
+      "name": {
+        "en": "Berliner Obdachlosenhilfe e.V.",
+        "de": "Berliner Obdachlosenhilfe e.V."
+      },
+      "address": {
+        "label": "Lynarstraße 38, 13353 Berlin"
+      },
+      "coordinates": {
+        "latitude": 52.5465,
+        "longitude": 13.3548,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Volunteer street tours and social support",
+        "de": "Hilfstouren und soziale Unterstützung durch Freiwillige"
+      },
+      "source": {
+        "label": "Berliner Obdachlosenhilfe: Über uns",
+        "url": "https://www.berliner-obdachlosenhilfe.de/ueber-uns/"
+      }
+    },
+    {
+      "id": "caritas-berlin",
+      "map_marker": 4,
+      "name": {
+        "en": "Caritas Berlin",
+        "de": "Caritas Berlin"
+      },
+      "address": {
+        "label": "Levetzowstraße 12a, 10555 Berlin"
+      },
+      "coordinates": {
+        "latitude": 52.5226,
+        "longitude": 13.3423,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Housing emergency counselling and medical outreach",
+        "de": "Wohnungsnotberatung und medizinische mobile Hilfe"
+      },
+      "source": {
+        "label": "Caritas Berlin: Menschen in Wohnungsnot",
+        "url": "https://www.caritas-berlin.de/beratungundhilfe/berlin/wohnungsnot/wohnungsnot"
+      }
+    },
+    {
+      "id": "gangway-drop-out",
+      "map_marker": 5,
+      "name": {
+        "en": "Gangway e.V.",
+        "de": "Gangway e.V."
+      },
+      "address": {
+        "label": "Berlin citywide street social work"
+      },
+      "coordinates": {
+        "latitude": 52.5,
+        "longitude": 13.39,
+        "precision": "citywide-placeholder"
+      },
+      "focus": {
+        "en": "Street social work",
+        "de": "Straßensozialarbeit"
+      },
+      "source": {
+        "label": "Gangway: Team Drop Out",
+        "url": "https://gangway.de/teams/team-drop-out-streetwork-an-brennpunkten/"
+      }
+    },
+    {
+      "id": "unionhilfswerk-wohnungslosenhilfe",
+      "map_marker": 6,
+      "name": {
+        "en": "Unionhilfswerk",
+        "de": "Unionhilfswerk"
+      },
+      "address": {
+        "label": "Berlin service area"
+      },
+      "coordinates": {
+        "latitude": 52.483,
+        "longitude": 13.431,
+        "precision": "service-area-placeholder"
+      },
+      "focus": {
+        "en": "Housing emergency assistance and accommodation",
+        "de": "Wohnungslosenhilfe, Beratung und Unterbringung"
+      },
+      "source": {
+        "label": "Unionhilfswerk: Wohnungslosenhilfe",
+        "url": "https://www.unionhilfswerk.de/angebote/wohnungslosenhilfe/"
+      }
+    },
+    {
+      "id": "teen-challenge-berliner-help-stiftung",
+      "map_marker": 7,
+      "name": {
+        "en": "Teen Challenge / Berliner Help Stiftung",
+        "de": "Teen Challenge / Berliner Help Stiftung"
+      },
+      "address": {
+        "label": "Rütlistraße 18, 13407 Berlin"
+      },
+      "coordinates": {
+        "latitude": 52.5657,
+        "longitude": 13.3656,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Addiction counselling, low-threshold social advice, therapy placement, street work",
+        "de": "Suchtberatung, niedrigschwellige Sozialberatung, Therapievermittlung, Straßenarbeit"
+      },
+      "source": {
+        "label": "Teen Challenge Deutschland: Start page and help areas",
+        "url": "https://www.tcd-teenchallenge.de/"
+      }
+    },
+    {
+      "id": "heilsarmee-cafe-treffpunkt",
+      "map_marker": 8,
+      "name": {
+        "en": "The Salvation Army / Die Heilsarmee",
+        "de": "Die Heilsarmee"
+      },
+      "address": {
+        "label": "Kuglerstraße 11, 10439 Berlin"
+      },
+      "coordinates": {
+        "latitude": 52.5522,
+        "longitude": 13.4215,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Mobile outreach, warm spaces, meeting cafés, meals, practical support",
+        "de": "Mobile Einsatzwagen, Wärmestuben, Begegnungscafés, Mittagstisch und praktische Unterstützung"
+      },
+      "source": {
+        "label": "Die Heilsarmee in Deutschland: Obdachlose bleiben außen vor",
+        "url": "https://www.heilsarmee.de/aktuelles/obdachlose-bleiben-aussen-vor.html"
+      }
+    }
+  ]
+}

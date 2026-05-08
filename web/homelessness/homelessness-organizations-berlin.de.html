@@ -8,6 +8,7 @@
     <title>Hilfekarte und Organisationen in Berlin · SEiN Knowledge Hub</title>
     <link rel="manifest" href="../manifest.webmanifest" />
     <link rel="icon" href="../assets/icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
   <body>
@@ -59,7 +60,8 @@
               Organisationen und öffentlichen Berliner Angebotsverzeichnissen.<sup><a href="#ref-stadtmission">1</a></sup><sup><a href="#ref-drk">2</a></sup><sup><a href="#ref-teen-challenge">7</a></sup><sup><a href="#ref-heilsarmee">9</a></sup>
             </p>
             <p>
-              Die eingebettete Karte lädt Google Maps. Wer keine Google-Dienste laden möchte, kann
+              Die interaktive Karte nutzt die Organisationsdatenbank dieser Website und lädt
+              Kartenkacheln von OpenStreetMap. Wer keine externen Kartenkacheln laden möchte, kann
               stattdessen die Organisationstabelle und Quellenlinks verwenden.
             </p>
           </section>
@@ -67,12 +69,8 @@
           <section>
             <h2>Hilfekarte</h2>
             <div class="map-shell" aria-label="Berliner Karte der Unterstützungsorganisationen">
-              <iframe
-                title="Google-Karte der Wohnungslosenhilfe-Organisationen in Berlin"
-                src="https://www.google.com/maps?q=Wohnungslosenhilfe%20Organisationen%20Berlin&output=embed"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+              <div id="organizationMap" class="leaflet-map" data-map-lang="de" role="img" aria-label="Karte der gelisteten Berliner Wohnungslosenhilfe-Organisationen"></div>
+              <p class="map-fallback">Falls die Karte nicht geladen wird, nutze die Organisationsliste darunter.</p>
             </div>
           </section>
 
@@ -187,5 +185,7 @@
     <script src="../assets/js/resources.js"></script>
     <script src="../assets/js/search-index.js"></script>
     <script src="../assets/js/app.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="../assets/js/organization-map.js"></script>
   </body>
 </html>

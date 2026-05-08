@@ -737,10 +737,45 @@ h3 {
   overflow: hidden;
 }
 
-.map-shell iframe {
+.map-shell iframe,
+.leaflet-map {
   width: 100%;
   min-height: 430px;
   border: 0;
+}
+
+.leaflet-map {
+  background: var(--surface);
+  z-index: 0;
+}
+
+.map-fallback {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 8px 10px 10px;
+}
+
+.organization-map-marker {
+  align-items: center;
+  background: #3366cc;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  color: #fff;
+  display: flex;
+  font-size: 12px;
+  font-weight: 700;
+  justify-content: center;
+}
+
+.organization-map-popup {
+  display: grid;
+  gap: 4px;
+}
+
+.organization-map-popup span,
+.organization-map-popup small {
+  color: #4b5563;
 }
 
 .density-placeholder {

@@ -44,8 +44,8 @@ window.SEIN_SEARCH_INDEX = [
     title: "Helping map and organizations in Berlin",
     url: "homelessness/homelessness-organizations-berlin.html",
     category: "Homelessness",
-    summary: "A combined helping map, coordinate table, and starter directory of Berlin homelessness support organizations.",
-    keywords: "helping map organizations Berlin homeless social services Google Maps coordinates Stadtmission Caritas Diakonie Berliner Kaeltehilfe Teen Challenge Berliner Help Stiftung Salvation Army Heilsarmee density layer",
+    summary: "A database-driven helping map and starter directory of Berlin homelessness support organizations.",
+    keywords: "helping map organizations Berlin homeless social services Leaflet OpenStreetMap coordinates Stadtmission Caritas Diakonie Berliner Kaeltehilfe Teen Challenge Berliner Help Stiftung Salvation Army Heilsarmee density layer",
   },
   {
     lang: "en",
@@ -140,8 +140,8 @@ window.SEIN_SEARCH_INDEX = [
     title: "Hilfekarte und Organisationen in Berlin",
     url: "homelessness/homelessness-organizations-berlin.de.html",
     category: "Wohnungslosigkeit",
-    summary: "Eine kombinierte Hilfekarte, Koordinatentabelle und Startliste Berliner Organisationen der Wohnungslosenhilfe.",
-    keywords: "Hilfekarte Organisationen Berlin wohnungslos soziale Dienste Google Maps Koordinaten Stadtmission Caritas Diakonie Berliner Kältehilfe Teen Challenge Berliner Help Stiftung Salvation Army Heilsarmee Dichtelayer",
+    summary: "Eine datenbankgestützte Hilfekarte und Startliste Berliner Organisationen der Wohnungslosenhilfe.",
+    keywords: "Hilfekarte Organisationen Berlin wohnungslos soziale Dienste Leaflet OpenStreetMap Koordinaten Stadtmission Caritas Diakonie Berliner Kältehilfe Teen Challenge Berliner Help Stiftung Salvation Army Heilsarmee Dichtelayer",
   },
   {
     lang: "de",

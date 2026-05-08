@@ -176,6 +176,14 @@ def updated_content(record: VersionRecord, lang: str) -> str:
         return record.subject
     joined = " ".join(record.files)
     if "homelessness-organizations-berlin" in joined and (
+        "organization-map.js" in joined or "assets/data/berlin-homelessness-organizations.json" in joined
+    ):
+        return (
+            "Helping map rebuilt with database-only Leaflet markers"
+            if lang == "en"
+            else "Hilfekarte mit Leaflet-Markern nur aus der Datenbank neu aufgebaut"
+        )
+    if "homelessness-organizations-berlin" in joined and (
         "map-marker" in joined or "scripts/build_organization_tables.py" in joined
     ):
         return (
