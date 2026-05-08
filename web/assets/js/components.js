@@ -20,8 +20,7 @@ const pageGroups = [
     pages: [
       { id: "homelessness-berlin", en: "Overview in Berlin", de: "Überblick in Berlin" },
       { id: "homelessness-how-to-help", en: "How to help", de: "Wie man hilft" },
-      { id: "homelessness-organizations-berlin", en: "Organizations in Berlin", de: "Organisationen in Berlin" },
-      { id: "homelessness-map-berlin", en: "Map in Berlin", de: "Karte in Berlin" },
+      { id: "homelessness-organizations-berlin", en: "Helping map and organizations", de: "Hilfekarte und Organisationen" },
       { id: "homelessness-policies-germany", en: "Policies in Germany", de: "Politik in Deutschland" },
     ],
   },
@@ -65,10 +64,6 @@ const pageRoutes = {
   "homelessness-organizations-berlin": {
     en: "homelessness/homelessness-organizations-berlin.html",
     de: "homelessness/homelessness-organizations-berlin.de.html",
-  },
-  "homelessness-map-berlin": {
-    en: "homelessness/homelessness-map-berlin.html",
-    de: "homelessness/homelessness-map-berlin.de.html",
   },
   "homelessness-policies-germany": {
     en: "homelessness/homelessness-policies-germany.html",

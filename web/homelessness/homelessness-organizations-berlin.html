@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#171c21" media="(prefers-color-scheme: dark)" />
-    <title>Organizations helping Berlin homeless people · SEiN Knowledge Hub</title>
+    <title>Helping map and organizations in Berlin · SEiN Knowledge Hub</title>
     <link rel="manifest" href="../manifest.webmanifest" />
     <link rel="icon" href="../assets/icons/icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -20,19 +20,19 @@
         <article>
           <header class="article-header">
             <p class="namespace">Issue subpage</p>
-            <h1>Organizations helping Berlin homeless people</h1>
-            <p class="subtitle">A starting list of Berlin organizations and services connected to homelessness support.</p>
+            <h1>Helping map and organizations in Berlin</h1>
+            <p class="subtitle">A map-oriented starting directory of Berlin organizations and services connected to homelessness support.</p>
             <p class="revision-meta">
-              Last revised: <time datetime="2026-05-04T21:39:00+02:00">4 May 2026, 21:39 CEST</time>
+              Last revised: <time datetime="2026-05-08T16:57:00+02:00">8 May 2026, 16:57 CEST</time>
             </p>
           </header>
 
           <aside class="infobox" aria-label="article summary">
-            <h2>Organization list</h2>
+            <h2>Helping map</h2>
             <dl>
               <div>
                 <dt>Page type</dt>
-                <dd>Directory</dd>
+                <dd>Map and directory</dd>
               </div>
               <div>
                 <dt>Location</dt>
@@ -42,17 +42,76 @@
                 <dt>Use</dt>
                 <dd>Find organizations to contact, support, research, or volunteer with</dd>
               </div>
+              <div>
+                <dt>Density layer</dt>
+                <dd>Planned; no verified hotspot dataset yet</dd>
+              </div>
             </dl>
           </aside>
 
           <section>
             <h2>Overview</h2>
             <p>
-              This list is a starting point, not a complete service map. Always check the linked
+              This page combines the Berlin organization list with a map-oriented coordinate
+              directory. It is a starting point, not a complete service map. Always check the linked
               organization pages for current opening times, phone numbers, donation needs, and
               volunteer requirements. The entries below are drawn from the organizations' own
               pages and public Berlin-facing service descriptions.<sup><a href="#ref-stadtmission">1</a></sup><sup><a href="#ref-drk">2</a></sup><sup><a href="#ref-boh">3</a></sup><sup><a href="#ref-teen-challenge">7</a></sup><sup><a href="#ref-heilsarmee">9</a></sup>
             </p>
+            <p>
+              The embedded map loads Google Maps. Visitors who do not want to load Google services
+              can use the coordinate table and source links instead.
+            </p>
+          </section>
+
+          <section>
+            <h2>Helping map</h2>
+            <div class="map-shell" aria-label="Berlin support organization map">
+              <iframe
+                title="Google map of Berlin homelessness support organizations"
+                src="https://www.google.com/maps?q=homelessness%20support%20organizations%20Berlin&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <div class="map-marker-layer" aria-hidden="true">
+                <span class="map-marker" style="left: 49%; top: 41%;">1</span>
+                <span class="map-marker" style="left: 55%; top: 47%;">2</span>
+                <span class="map-marker" style="left: 43%; top: 40%;">3</span>
+                <span class="map-marker" style="left: 47%; top: 44%;">4</span>
+                <span class="map-marker" style="left: 50%; top: 50%;">5</span>
+                <span class="map-marker" style="left: 61%; top: 52%;">6</span>
+                <span class="map-marker" style="left: 43%; top: 30%;">7</span>
+                <span class="map-marker" style="left: 58%; top: 37%;">8</span>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Map coordinates</h2>
+            <div class="table-wrap">
+              <table class="directory-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Organization</th>
+                    <th>Address used</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Source</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Berliner Stadtmission</td><td>Lehrter Straße 68, 10557 Berlin</td><td>52.5287</td><td>13.3649</td><td><a href="#ref-stadtmission-address">Stadtmission</a></td></tr>
+                  <tr><td>2</td><td>DRK Berlin Wärmebus</td><td>DRK Berlin service, citywide mobile outreach</td><td>52.5200</td><td>13.4050</td><td><a href="#ref-drk">DRK Berlin</a></td></tr>
+                  <tr><td>3</td><td>Berliner Obdachlosenhilfe e.V.</td><td>Lynarstraße 38, 13353 Berlin</td><td>52.5465</td><td>13.3548</td><td><a href="#ref-boh-contact">Berliner Obdachlosenhilfe</a></td></tr>
+                  <tr><td>4</td><td>Caritas central advice for housing emergency</td><td>Levetzowstraße 12a, 10555 Berlin</td><td>52.5226</td><td>13.3423</td><td><a href="#ref-caritas-address">Caritas</a></td></tr>
+                  <tr><td>5</td><td>Gangway Team Drop Out</td><td>Berlin citywide street social work</td><td>52.5000</td><td>13.3900</td><td><a href="#ref-gangway">Gangway</a></td></tr>
+                  <tr><td>6</td><td>Unionhilfswerk housing assistance</td><td>Berlin service area</td><td>52.4830</td><td>13.4310</td><td><a href="#ref-union">Unionhilfswerk</a></td></tr>
+                  <tr><td>7</td><td>Teen Challenge / Berliner Help Stiftung</td><td>Rütlistraße 18, 13407 Berlin</td><td>52.5657</td><td>13.3656</td><td><a href="#ref-teen-challenge-berlin">Hilfelotse Berlin</a></td></tr>
+                  <tr><td>8</td><td>Die Heilsarmee Cafe Treffpunkt</td><td>Kuglerstraße 11, 10439 Berlin</td><td>52.5522</td><td>13.4215</td><td><a href="#ref-heilsarmee-cafe">Hilfelotse Berlin</a></td></tr>
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <section>
@@ -122,6 +181,23 @@
           </section>
 
           <section>
+            <h2>Density layer status</h2>
+            <div class="density-placeholder">
+              <p>
+                A colored density layer is planned, but it should not be drawn from guesswork. To
+                avoid misrepresenting where homeless people are, the hub needs a source-reviewed
+                dataset or a carefully governed field observation process before showing hotspot
+                colors.
+              </p>
+              <ul class="density-legend" aria-label="future density legend">
+                <li><span class="density-swatch low"></span> Low observed concentration</li>
+                <li><span class="density-swatch medium"></span> Medium observed concentration</li>
+                <li><span class="density-swatch high"></span> High observed concentration</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
             <h2>References</h2>
             <ol class="references">
               <li><a id="ref-stadtmission" href="https://www.berliner-stadtmission.de/angebote/armut-und-wohnungslosigkeit">Berliner Stadtmission: Armut und Wohnungslosigkeit</a></li>
@@ -133,6 +209,10 @@
               <li><a id="ref-teen-challenge" href="https://www.tcd-teenchallenge.de/">Teen Challenge Deutschland: Start page and help areas</a></li>
               <li><a id="ref-teen-challenge-berlin" href="https://www.hilfelotse-berlin.de/detail/berliner-help-stiftung-teen-challenge-berlin">Hilfelotse Berlin: Berliner Help Stiftung / Teen Challenge Berlin</a></li>
               <li><a id="ref-heilsarmee" href="https://www.heilsarmee.de/aktuelles/obdachlose-bleiben-aussen-vor.html">Die Heilsarmee in Deutschland: Obdachlose bleiben außen vor</a></li>
+              <li><a id="ref-stadtmission-address" href="https://www.berliner-stadtmission.de/komm-sieh/kleiderkammer">Berliner Stadtmission: Kleiderkammer Lehrter Straße</a></li>
+              <li><a id="ref-boh-contact" href="https://www.berliner-obdachlosenhilfe.de/kontakt/">Berliner Obdachlosenhilfe: Kontakt</a></li>
+              <li><a id="ref-caritas-address" href="https://www.caritas.de/adressen/caritasverband-fuer-das-erzbistum-berlin-e.-v/zentrale-beratungsstelle-fuer-menschen-in-wohnungs/10555-berlin/74735">Caritas: Zentrale Beratungsstelle für Menschen in Wohnungsnot</a></li>
+              <li><a id="ref-heilsarmee-cafe" href="https://www.hilfelotse-berlin.de/detail/die-heilsarmee-cafe-treffpunkt">Hilfelotse Berlin: Die Heilsarmee Cafe Treffpunkt</a></li>
             </ol>
           </section>
         </article>

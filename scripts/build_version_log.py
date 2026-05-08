@@ -100,10 +100,10 @@ def classify(files: list[str], lang: str) -> str:
         "sources": "Source notes" if lang == "en" else "Quellennotizen",
         "website": "Website" if lang == "en" else "Website",
     }
-    if "knowledge-hub-" in joined or "build_version_log.py" in joined:
-        return labels["development"]
     if "homelessness" in joined:
         return labels["homelessness"]
+    if "knowledge-hub-" in joined or "build_version_log.py" in joined:
+        return labels["development"]
     if "research-social-issues" in joined:
         return labels["research"]
     if ".github/workflows" in joined or "service-worker" in joined:
@@ -175,6 +175,14 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if "homelessness-organizations-berlin" in joined and (
+        "homelessness-map-berlin" in joined or "web/assets/css/styles.css" in joined
+    ):
+        return (
+            "Helping map and Berlin organization directory combined into one page"
+            if lang == "en"
+            else "Hilfekarte und Berliner Organisationsverzeichnis auf einer Seite zusammengeführt"
+        )
     if "homelessness-map-berlin" in joined:
         return (
             "Berlin homelessness support map added with organization coordinates"
@@ -327,7 +335,7 @@ def page(lang: str, records: list[VersionRecord]) -> str:
           <li class="page-nav-group">Wohnungslosigkeit</li>
           <li><a class="subpage-link" href="homelessness-berlin.de.html">Überblick in Berlin</a></li>
           <li><a class="subpage-link" href="homelessness-how-to-help.de.html">Wie man hilft</a></li>
-          <li><a class="subpage-link" href="homelessness-organizations-berlin.de.html">Organisationen in Berlin</a></li>
+          <li><a class="subpage-link" href="homelessness-organizations-berlin.de.html">Hilfekarte und Organisationen</a></li>
           <li><a class="subpage-link" href="homelessness-policies-germany.de.html">Politik in Deutschland</a></li>
           <li class="page-nav-group">Entwicklung des Knowledge Hub</li>
           <li><a class="subpage-link" href="knowledge-hub-version-log.de.html" aria-current="page">Versionsprotokoll</a></li>
@@ -373,7 +381,7 @@ def page(lang: str, records: list[VersionRecord]) -> str:
           <li class="page-nav-group">Homelessness</li>
           <li><a class="subpage-link" href="homelessness-berlin.html">Overview in Berlin</a></li>
           <li><a class="subpage-link" href="homelessness-how-to-help.html">How to help</a></li>
-          <li><a class="subpage-link" href="homelessness-organizations-berlin.html">Organizations in Berlin</a></li>
+          <li><a class="subpage-link" href="homelessness-organizations-berlin.html">Helping map and organizations</a></li>
           <li><a class="subpage-link" href="homelessness-policies-germany.html">Policies in Germany</a></li>
           <li class="page-nav-group">Knowledge Hub development</li>
           <li><a class="subpage-link" href="knowledge-hub-version-log.html" aria-current="page">Version log</a></li>

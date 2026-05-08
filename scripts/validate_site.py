@@ -93,10 +93,6 @@ def page_filename(page_id: str, lang: str) -> str:
             "en": "homelessness/homelessness-organizations-berlin.html",
             "de": "homelessness/homelessness-organizations-berlin.de.html",
         },
-        "homelessness-map-berlin": {
-            "en": "homelessness/homelessness-map-berlin.html",
-            "de": "homelessness/homelessness-map-berlin.de.html",
-        },
         "homelessness-policies-germany": {
             "en": "homelessness/homelessness-policies-germany.html",
             "de": "homelessness/homelessness-policies-germany.de.html",
