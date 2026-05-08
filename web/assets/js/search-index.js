@@ -49,6 +49,14 @@ window.SEIN_SEARCH_INDEX = [
   },
   {
     lang: "en",
+    title: "Berlin homelessness support map",
+    url: "homelessness/homelessness-map-berlin.html",
+    category: "Homelessness",
+    summary: "Google Maps embed and coordinate-backed map directory for Berlin homelessness support organizations.",
+    keywords: "Berlin homelessness map Google Maps organization coordinates support services density layer hotspots Stadtmission DRK Caritas Heilsarmee Teen Challenge",
+  },
+  {
+    lang: "en",
     title: "Homelessness policies in Germany",
     url: "homelessness/homelessness-policies-germany.html",
     category: "Homelessness",
@@ -142,6 +150,14 @@ window.SEIN_SEARCH_INDEX = [
     category: "Wohnungslosigkeit",
     summary: "Eine Startliste Berliner Organisationen und Dienste im Bereich Wohnungslosigkeit.",
     keywords: "Organisationen Berlin wohnungslos soziale Dienste Stadtmission Caritas Diakonie Berliner Kältehilfe Teen Challenge Berliner Help Stiftung Salvation Army Heilsarmee",
+  },
+  {
+    lang: "de",
+    title: "Karte der Wohnungslosenhilfe in Berlin",
+    url: "homelessness/homelessness-map-berlin.de.html",
+    category: "Wohnungslosigkeit",
+    summary: "Google-Maps-Einbettung und Koordinatenverzeichnis für Berliner Organisationen der Wohnungslosenhilfe.",
+    keywords: "Berlin Wohnungslosigkeit Karte Google Maps Organisationen Koordinaten Hilfe Dienste Dichtelayer Hotspots Stadtmission DRK Caritas Heilsarmee Teen Challenge",
   },
   {
     lang: "de",

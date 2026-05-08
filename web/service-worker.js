@@ -1,4 +1,4 @@
-const CACHE_NAME = "sein-knowledge-hub-v38";
+const CACHE_NAME = "sein-knowledge-hub-v39";
 const ASSETS = [
   "./",
   "./index.html",
@@ -13,6 +13,8 @@ const ASSETS = [
   "./homelessness/homelessness-how-to-help.de.html",
   "./homelessness/homelessness-organizations-berlin.html",
   "./homelessness/homelessness-organizations-berlin.de.html",
+  "./homelessness/homelessness-map-berlin.html",
+  "./homelessness/homelessness-map-berlin.de.html",
   "./homelessness/homelessness-policies-germany.html",
   "./homelessness/homelessness-policies-germany.de.html",
   "./development/knowledge-hub-version-log.html",

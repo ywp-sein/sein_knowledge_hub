@@ -175,6 +175,12 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if "homelessness-map-berlin" in joined:
+        return (
+            "Berlin homelessness support map added with organization coordinates"
+            if lang == "en"
+            else "Karte der Berliner Wohnungslosenhilfe mit Organisationskoordinaten ergänzt"
+        )
     if (
         "web/some-hows/" in joined
         or "web/homelessness/" in joined
