@@ -5,7 +5,7 @@
     "city": "Berlin",
     "country": "Germany"
   },
-  "last_reviewed": "2026-05-08T17:10:00+02:00",
+  "last_reviewed": "2026-05-08T17:41:00+02:00",
   "notes": [
     "Coordinates are retained for future map/database use but are not displayed in the article table.",
     "Citywide or mobile services use approximate Berlin reference coordinates until more precise service-area data is available.",
@@ -295,6 +295,48 @@
         {
           "label": "Hilfelotse Berlin: Die Heilsarmee Cafe Treffpunkt",
           "url": "https://www.hilfelotse-berlin.de/detail/die-heilsarmee-cafe-treffpunkt"
+        }
+      ]
+    },
+    {
+      "id": "cafe-sehnsucht",
+      "map_marker": 9,
+      "name": {
+        "en": "Café SehnSucht",
+        "de": "Café SehnSucht"
+      },
+      "address": {
+        "label": "Skalitzer Straße 133, 10999 Berlin",
+        "street": "Skalitzer Straße 133",
+        "postal_code": "10999",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "coordinates": {
+        "latitude": 52.499271857993,
+        "longitude": 13.4197005629539,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Low-threshold contact and counselling café for people affected by addiction, homelessness, and precarious life situations",
+        "de": "Niedrigschwelliges Kontakt- und Beratungscafé für Menschen mit Suchtbelastung, Wohnungslosigkeit und prekären Lebenslagen"
+      },
+      "how_it_helps": {
+        "en": "Provides meals, conversation, pastoral care, prayer, practical help, addiction and life counselling, and referrals such as detox or therapy preparation.",
+        "de": "Bietet Essen, Gespräch, Seelsorge, Gebet, praktische Hilfe, Sucht- und Lebensberatung sowie Vermittlung etwa in Entgiftung oder Therapievorbereitung."
+      },
+      "sources": [
+        {
+          "label": "Berlin district addiction and drugs guide: Café SehnSucht",
+          "url": "https://www.berlin.de/ba-tempelhof-schoeneberg/politik-und-verwaltung/service-und-organisationseinheiten/planungs-und-koordinierungsstelle-gesundheit/sucht-drogen-rat-und-hilfe_wegweiser-2020.pdf?ts=1726225972"
+        },
+        {
+          "label": "Sozialportal: Kontakt- und Begegnungsstätte Café SehnSucht",
+          "url": "https://sozialportal.net/sozialportal/kontakt-und-begegnungsstatte-cafe-sehnsucht-fcjkw"
+        },
+        {
+          "label": "Kauperts: Skalitzer Straße 133 coordinates",
+          "url": "https://berlin.kauperts.de/eintrag/Fahimi-Skalitzer-Strasse-133-10999-Berlin"
         }
       ]
     }

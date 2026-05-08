@@ -5,7 +5,7 @@
     "city": "Berlin",
     "country": "Germany"
   },
-  "last_reviewed": "2026-05-08T17:10:00+02:00",
+  "last_reviewed": "2026-05-08T17:41:00+02:00",
   "organizations": [
     {
       "id": "berliner-stadtmission",
@@ -197,6 +197,30 @@
       "source": {
         "label": "Die Heilsarmee in Deutschland: Obdachlose bleiben außen vor",
         "url": "https://www.heilsarmee.de/aktuelles/obdachlose-bleiben-aussen-vor.html"
+      }
+    },
+    {
+      "id": "cafe-sehnsucht",
+      "map_marker": 9,
+      "name": {
+        "en": "Café SehnSucht",
+        "de": "Café SehnSucht"
+      },
+      "address": {
+        "label": "Skalitzer Straße 133, 10999 Berlin"
+      },
+      "coordinates": {
+        "latitude": 52.499271857993,
+        "longitude": 13.4197005629539,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Low-threshold contact and counselling café for people affected by addiction, homelessness, and precarious life situations",
+        "de": "Niedrigschwelliges Kontakt- und Beratungscafé für Menschen mit Suchtbelastung, Wohnungslosigkeit und prekären Lebenslagen"
+      },
+      "source": {
+        "label": "Berlin district addiction and drugs guide: Café SehnSucht",
+        "url": "https://www.berlin.de/ba-tempelhof-schoeneberg/politik-und-verwaltung/service-und-organisationseinheiten/planungs-und-koordinierungsstelle-gesundheit/sucht-drogen-rat-und-hilfe_wegweiser-2020.pdf?ts=1726225972"
       }
     }
   ]

@@ -176,6 +176,15 @@ def updated_content(record: VersionRecord, lang: str) -> str:
         return record.subject
     joined = " ".join(record.files)
     if "homelessness-organizations-berlin" in joined and (
+        "data/berlin-homelessness-organizations.json" in joined
+        or "web/assets/data/berlin-homelessness-organizations.json" in joined
+    ):
+        return (
+            "Café SehnSucht added to the Berlin helping map database"
+            if lang == "en"
+            else "Café SehnSucht zur Berliner Hilfekarten-Datenbank ergänzt"
+        )
+    if "homelessness-organizations-berlin" in joined and (
         "organization-map.js" in joined or "assets/data/berlin-homelessness-organizations.json" in joined
     ):
         return (
