@@ -29,6 +29,9 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v6
 
+      - name: Validate static site structure
+        run: python3 scripts/validate_site.py
+
       - name: Build automated version log
         run: VERSION_LOG_INCLUDE_DIRTY=0 python3 scripts/build_version_log.py
 

@@ -43,18 +43,74 @@ const pageGroups = [
   },
 ];
 
+const pageRoutes = {
+  index: { en: "index.html", de: "index.de.html" },
+  "how-to-change-society": {
+    en: "some-hows/how-to-change-society.html",
+    de: "some-hows/how-to-change-society.de.html",
+  },
+  "research-social-issues": {
+    en: "some-hows/research-social-issues.html",
+    de: "some-hows/research-social-issues.de.html",
+  },
+  "homelessness-berlin": {
+    en: "homelessness/homelessness-berlin.html",
+    de: "homelessness/homelessness-berlin.de.html",
+  },
+  "homelessness-how-to-help": {
+    en: "homelessness/homelessness-how-to-help.html",
+    de: "homelessness/homelessness-how-to-help.de.html",
+  },
+  "homelessness-organizations-berlin": {
+    en: "homelessness/homelessness-organizations-berlin.html",
+    de: "homelessness/homelessness-organizations-berlin.de.html",
+  },
+  "homelessness-policies-germany": {
+    en: "homelessness/homelessness-policies-germany.html",
+    de: "homelessness/homelessness-policies-germany.de.html",
+  },
+  "knowledge-hub-version-log": {
+    en: "development/knowledge-hub-version-log.html",
+    de: "development/knowledge-hub-version-log.de.html",
+  },
+  "knowledge-hub-next-steps": {
+    en: "development/knowledge-hub-next-steps.html",
+    de: "development/knowledge-hub-next-steps.de.html",
+  },
+  imprint: { en: "legal/imprint.html", de: "legal/imprint.de.html" },
+  privacy: { en: "legal/privacy.html", de: "legal/privacy.de.html" },
+  license: { en: "legal/license.html", de: "legal/license.de.html" },
+};
+
 function currentLang() {
   return document.documentElement.lang === "de" ? "de" : "en";
 }
 
+function currentPathKey() {
+  const parts = window.location.pathname.split("/").filter(Boolean);
+  const last = parts.at(-1) || "index.html";
+  const parent = parts.at(-2);
+  return parent && ["some-hows", "homelessness", "development", "legal"].includes(parent)
+    ? `${parent}/${last}`
+    : last;
+}
+
 function currentPageId() {
-  const file = window.location.pathname.split("/").pop() || "index.html";
-  return file.replace(/\.de\.html$/, "").replace(/\.html$/, "") || "index";
+  const path = currentPathKey();
+  const found = Object.entries(pageRoutes).find(([, routes]) => routes.en === path || routes.de === path);
+  return found ? found[0] : "index";
+}
+
+function currentDepthPrefix() {
+  return currentPathKey().includes("/") ? "../" : "";
+}
+
+function relativeHref(path) {
+  return `${currentDepthPrefix()}${path}`;
 }
 
 function pageHref(id, lang = currentLang()) {
-  if (id === "index") return lang === "de" ? "index.de.html" : "index.html";
-  return lang === "de" ? `${id}.de.html` : `${id}.html`;
+  return relativeHref(pageRoutes[id][lang]);
 }
 
 function themeIcon() {
@@ -77,7 +133,7 @@ class SeinHeader extends HTMLElement {
       <header class="site-header">
         <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="${labels.menu}" aria-controls="siteSidebar" aria-expanded="false">${menuIcon()}</button>
         <a class="brand" href="${pageHref("index", lang)}" aria-label="${labels.home}">
-          <img src="icon.svg" alt="" />
+          <img src="${relativeHref("assets/icons/icon.svg")}" alt="" />
           <span>SEiN Knowledge Hub</span>
         </a>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="${labels.theme}" aria-live="polite">${themeIcon()}<span>Auto</span></button>

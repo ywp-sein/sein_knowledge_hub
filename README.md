@@ -14,17 +14,35 @@ Public entry point:
 
 ## Current focus
 
-The wiki starts with a general main page and two subpage types:
+The wiki starts with a general main page and a few page families:
 
-- Method pages, beginning with how to research a social issue.
+- Some Hows, beginning with how to change society and how to research a social issue.
 - Issue pages, beginning with homelessness in Berlin.
+- Development pages for the version log and next steps.
+- Legal pages for imprint, privacy, and license information.
 
 The structure is intentionally expandable so later issue categories can be added without returning to an mdBook layout.
 
+## Repository structure
+
+Published website files stay in `web/` so GitHub Pages can deploy a simple static folder. Maintainer documentation is organized under `docs/`:
+
+- `docs/content/`: writing rules, source practice, translation practice, and page requirements.
+- `docs/compliance/`: legal and compliance check records.
+- `docs/technical/`: site structure and maintenance notes.
+- `scripts/`: build and validation scripts.
+- `src/`: older source notes, not published directly.
+
+For details, see:
+
+- `docs/content/content-guidelines.md`
+- `docs/technical/site-structure.md`
+
 ## Revision timestamps
 
-When wiki content is revised, update the visible `Last revised` timestamp in `web/index.html`.
-Use the local Berlin time zone format already shown on the page.
+When wiki content is revised, update the visible `Last revised` timestamp on the changed page.
+Use the local Berlin time zone format already shown across the site.
+Structural-only changes are recorded in the automated version log and do not require changing every article timestamp.
 
 ## Automated version log
 
@@ -35,6 +53,17 @@ python3 scripts/build_version_log.py
 ```
 
 GitHub Pages runs this script during deployment, so each pushed update appears with a numbered version, timestamp, area, and updated content summary. Use clear commit messages because they become the public update summary.
+
+## Validation
+
+Run the structural validator before publishing larger changes:
+
+```bash
+python3 scripts/validate_site.py
+```
+
+The validator checks HTML parsing, English/German page pairs, sidebar pages, search index entries, service-worker assets, visible revision timestamps, and infobox presence.
+The GitHub Pages workflow runs this check before building the version log and deploying.
 
 ## Local preview
 

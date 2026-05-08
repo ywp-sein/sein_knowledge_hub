@@ -175,6 +175,29 @@ def updated_content(record: VersionRecord, lang: str) -> str:
     if not record.dirty:
         return record.subject
     joined = " ".join(record.files)
+    if (
+        "web/some-hows/" in joined
+        or "web/homelessness/" in joined
+        or "web/development/" in joined
+        or "web/legal/" in joined
+    ) and "service-worker.js" in joined:
+        return (
+            "Published pages reorganized into category directories"
+            if lang == "en"
+            else "Veröffentlichte Seiten in Kategorieverzeichnisse umorganisiert"
+        )
+    if "assets/" in joined and "service-worker.js" in joined:
+        return (
+            "Published web assets reorganized under assets directories"
+            if lang == "en"
+            else "Veröffentlichte Web-Assets in assets-Verzeichnisse umorganisiert"
+        )
+    if "scripts/validate_site.py" in joined or "docs/content" in joined or "docs/technical" in joined:
+        return (
+            "Repository structure, content guidelines, and site validation added"
+            if lang == "en"
+            else "Repository-Struktur, Inhaltsrichtlinien und Site-Validierung ergänzt"
+        )
     if "how-to-change-society" in joined or "how-to-have-hope-to-help" in joined:
         return (
             "How to change society page revised with responsibility for words and deeds"
@@ -253,7 +276,7 @@ def updated_content(record: VersionRecord, lang: str) -> str:
             if lang == "en"
             else "Methodenseite zur Recherche sozialer Themen um Methoden und Referenzen erweitert"
         )
-    if "themeIcons" in joined or "themeToggle" in joined or ("web/styles.css" in joined and "web/app.js" in joined):
+    if "themeIcons" in joined or "themeToggle" in joined or ("web/assets/css/styles.css" in joined and "web/assets/js/app.js" in joined):
         return (
             "Theme toggle uses open-source-style icons before language switch"
             if lang == "en"
@@ -389,9 +412,9 @@ def page(lang: str, records: list[VersionRecord]) -> str:
     <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#171c21" media="(prefers-color-scheme: dark)" />
     <title>{html.escape(title)}</title>
-    <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="icon" href="icon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="icon" href="../assets/icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
   <body>
     <sein-header></sein-header>
@@ -445,10 +468,10 @@ def page(lang: str, records: list[VersionRecord]) -> str:
         </article>
       </main>
     </div>
-    <script src="components.js"></script>
-    <script src="resources.js"></script>
-    <script src="search-index.js"></script>
-    <script src="app.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/resources.js"></script>
+    <script src="../assets/js/search-index.js"></script>
+    <script src="../assets/js/app.js"></script>
   </body>
 </html>
 """
@@ -460,8 +483,8 @@ def main() -> None:
     if dirty:
         dirty.version = semantic_version(len(records) + 1)
         records.insert(0, dirty)
-    (WEB / "knowledge-hub-version-log.html").write_text(page("en", records), encoding="utf-8")
-    (WEB / "knowledge-hub-version-log.de.html").write_text(page("de", records), encoding="utf-8")
+    (WEB / "development/knowledge-hub-version-log.html").write_text(page("en", records), encoding="utf-8")
+    (WEB / "development/knowledge-hub-version-log.de.html").write_text(page("de", records), encoding="utf-8")
 
 
 if __name__ == "__main__":

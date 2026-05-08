@@ -10,7 +10,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "How to research a social issue",
-    url: "research-social-issues.html",
+    url: "some-hows/research-social-issues.html",
     category: "Some Hows",
     summary: "A practical method for researching social issues with source mapping, systems mapping, field conversations, and references.",
     keywords: "research social issue method sources evidence field notes policy context source mapping systems mapping evaluation references",
@@ -18,7 +18,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "How to change society",
-    url: "how-to-change-society.html",
+    url: "some-hows/how-to-change-society.html",
     category: "Some Hows",
     summary: "A simple posture for changing ourselves first, turning complaint into questions, and acting for future generations.",
     keywords: "change society social change self change complaint questions concerns solutions collective voices future generations hope responsibility",
@@ -26,7 +26,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "Homelessness in Berlin",
-    url: "homelessness-berlin.html",
+    url: "homelessness/homelessness-berlin.html",
     category: "Homelessness",
     summary: "Overview of homelessness support routes, emergency help, and Berlin resource orientation.",
     keywords: "homelessness Berlin shelter emergency Kaeltehilfe housing support Soziale Wohnhilfe resource directory",
@@ -34,7 +34,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "How to help Berlin homeless people",
-    url: "homelessness-how-to-help.html",
+    url: "homelessness/homelessness-how-to-help.html",
     category: "Homelessness",
     summary: "Consent-based guidance for helping people experiencing homelessness in Berlin.",
     keywords: "help volunteer donate consent outreach food water emergency respectful support",
@@ -42,7 +42,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "Organizations helping Berlin homeless people",
-    url: "homelessness-organizations-berlin.html",
+    url: "homelessness/homelessness-organizations-berlin.html",
     category: "Homelessness",
     summary: "A starter list of Berlin social organizations and services working with homelessness.",
     keywords: "organizations Berlin homeless social services Stadtmission Caritas Diakonie Berliner Kaeltehilfe Teen Challenge Berliner Help Stiftung Salvation Army Heilsarmee",
@@ -50,7 +50,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "Homelessness policies in Germany",
-    url: "homelessness-policies-germany.html",
+    url: "homelessness/homelessness-policies-germany.html",
     category: "Homelessness",
     summary: "Selected German homelessness policy developments and public strategy context from the last decade.",
     keywords: "Germany homelessness policy national action plan housing first social law statistics BAG W",
@@ -58,7 +58,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "Knowledge Hub version log",
-    url: "knowledge-hub-version-log.html",
+    url: "development/knowledge-hub-version-log.html",
     category: "Knowledge Hub development",
     summary: "Numbered record of Knowledge Hub revisions, timestamps, areas, and updated content.",
     keywords: "version log revision timestamp update development changelog knowledge hub",
@@ -66,7 +66,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "Knowledge Hub next steps",
-    url: "knowledge-hub-next-steps.html",
+    url: "development/knowledge-hub-next-steps.html",
     category: "Knowledge Hub development",
     summary: "Possible improvements and next development steps for the Knowledge Hub website.",
     keywords: "next steps improvements development roadmap future categories search translation labels source sources issues",
@@ -74,7 +74,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "Imprint",
-    url: "imprint.html",
+    url: "legal/imprint.html",
     category: "Legal",
     summary: "Provider information and required operator details for the SEiN Knowledge Hub.",
     keywords: "imprint impressum provider legal notice operator contact DDG MStV",
@@ -82,7 +82,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "Privacy Policy",
-    url: "privacy.html",
+    url: "legal/privacy.html",
     category: "Legal",
     summary: "Privacy information for the static GitHub Pages website and external links.",
     keywords: "privacy policy data protection GDPR GitHub Pages IP address logs local storage",
@@ -90,7 +90,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "en",
     title: "License",
-    url: "license.html",
+    url: "legal/license.html",
     category: "Legal",
     summary: "Reuse terms for Knowledge Hub content and website code.",
     keywords: "license licence CC BY 4.0 MIT reuse attribution code content",
@@ -106,7 +106,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Wie man ein soziales Thema recherchiert",
-    url: "research-social-issues.de.html",
+    url: "some-hows/research-social-issues.de.html",
     category: "Einige Wie-Fragen",
     summary: "Eine praktische Methode zur Recherche sozialer Themen mit Quellenkartierung, Systemkartierung, Feldgesprächen und Referenzen.",
     keywords: "Recherche soziales Thema Methode Quellen Evidenz Feldnotizen Politik Kontext Quellenkartierung Systemkartierung Evaluation Referenzen",
@@ -114,7 +114,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Wie man Gesellschaft verändert",
-    url: "how-to-change-society.de.html",
+    url: "some-hows/how-to-change-society.de.html",
     category: "Einige Wie-Fragen",
     summary: "Eine einfache Haltung, um zuerst uns selbst zu verändern, Beschwerde in Fragen zu verwandeln und für kommende Generationen zu handeln.",
     keywords: "Gesellschaft verändern sozialer Wandel Selbstveränderung Beschwerde Fragen Anliegen Lösungen gemeinsame Stimmen Zukunft Generationen Hoffnung Verantwortung",
@@ -122,7 +122,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Wohnungslosigkeit in Berlin",
-    url: "homelessness-berlin.de.html",
+    url: "homelessness/homelessness-berlin.de.html",
     category: "Wohnungslosigkeit",
     summary: "Überblick über Unterstützungswege, Soforthilfe und Berliner Ressourcen zur Wohnungslosigkeit.",
     keywords: "Wohnungslosigkeit Berlin Unterkunft Notfall Kältehilfe Wohnhilfe Unterstützung Ressourcenverzeichnis",
@@ -130,7 +130,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Wie man wohnungslosen Menschen in Berlin hilft",
-    url: "homelessness-how-to-help.de.html",
+    url: "homelessness/homelessness-how-to-help.de.html",
     category: "Wohnungslosigkeit",
     summary: "Zustimmungsbasierte Hinweise zur Hilfe für wohnungslose Menschen in Berlin.",
     keywords: "helfen freiwillig spenden Zustimmung Streetwork Essen Wasser Notfall respektvolle Unterstützung",
@@ -138,7 +138,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Organisationen für wohnungslose Menschen in Berlin",
-    url: "homelessness-organizations-berlin.de.html",
+    url: "homelessness/homelessness-organizations-berlin.de.html",
     category: "Wohnungslosigkeit",
     summary: "Eine Startliste Berliner Organisationen und Dienste im Bereich Wohnungslosigkeit.",
     keywords: "Organisationen Berlin wohnungslos soziale Dienste Stadtmission Caritas Diakonie Berliner Kältehilfe Teen Challenge Berliner Help Stiftung Salvation Army Heilsarmee",
@@ -146,7 +146,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Politik zu Wohnungslosigkeit in Deutschland",
-    url: "homelessness-policies-germany.de.html",
+    url: "homelessness/homelessness-policies-germany.de.html",
     category: "Wohnungslosigkeit",
     summary: "Ausgewählte politische Entwicklungen zu Wohnungslosigkeit in Deutschland aus den letzten Jahren.",
     keywords: "Deutschland Wohnungslosigkeit Politik Nationaler Aktionsplan Housing First Sozialrecht Statistik BAG W",
@@ -154,7 +154,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Versionsprotokoll des Knowledge Hub",
-    url: "knowledge-hub-version-log.de.html",
+    url: "development/knowledge-hub-version-log.de.html",
     category: "Entwicklung des Knowledge Hub",
     summary: "Nummeriertes Protokoll der Revisionen, Zeitstempel, Bereiche und aktualisierten Inhalte.",
     keywords: "Versionsprotokoll Revision Zeitstempel Aktualisierung Entwicklung Changelog Knowledge Hub",
@@ -162,7 +162,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Nächste Schritte des Knowledge Hub",
-    url: "knowledge-hub-next-steps.de.html",
+    url: "development/knowledge-hub-next-steps.de.html",
     category: "Entwicklung des Knowledge Hub",
     summary: "Mögliche Verbesserungen und nächste Entwicklungsschritte für die Knowledge-Hub-Website.",
     keywords: "nächste Schritte Verbesserungen Entwicklung Roadmap zukünftige Kategorien Suche Übersetzung Labels Quelle Quellen Issues",
@@ -170,7 +170,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Impressum",
-    url: "imprint.de.html",
+    url: "legal/imprint.de.html",
     category: "Rechtliches",
     summary: "Anbieterinformationen und erforderliche Betreiberdaten für den SEiN Knowledge Hub.",
     keywords: "Impressum Anbieterkennzeichnung rechtlicher Hinweis Betreiber Kontakt DDG MStV",
@@ -178,7 +178,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Datenschutz",
-    url: "privacy.de.html",
+    url: "legal/privacy.de.html",
     category: "Rechtliches",
     summary: "Datenschutzhinweise für die statische GitHub-Pages-Website und externe Links.",
     keywords: "Datenschutz Datenschutzerklärung DSGVO GitHub Pages IP-Adresse Logs local storage",
@@ -186,7 +186,7 @@ window.SEIN_SEARCH_INDEX = [
   {
     lang: "de",
     title: "Lizenz",
-    url: "license.de.html",
+    url: "legal/license.de.html",
     category: "Rechtliches",
     summary: "Nutzungsbedingungen für Inhalte und Website-Code des Knowledge Hub.",
     keywords: "Lizenz CC BY 4.0 MIT Wiederverwendung Namensnennung Code Inhalt",

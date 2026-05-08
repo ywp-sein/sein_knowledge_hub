@@ -102,7 +102,7 @@ function renderSiteSearch() {
 
 function renderSearchResult(entry) {
   return `
-    <a class="search-result" href="${entry.url}">
+    <a class="search-result" href="${relativeHref(entry.url)}">
       <strong>${escapeHtml(entry.title)}</strong>
       <span>${escapeHtml(entry.category)}</span>
       <small>${escapeHtml(entry.summary)}</small>
@@ -183,6 +183,13 @@ function escapeHtml(value) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function relativeHref(path) {
+  const parts = window.location.pathname.split("/").filter(Boolean);
+  const parent = parts.at(-2);
+  const prefix = parent && ["some-hows", "homelessness", "development", "legal"].includes(parent) ? "../" : "";
+  return `${prefix}${path}`;
 }
 
 function openSidebar() {
