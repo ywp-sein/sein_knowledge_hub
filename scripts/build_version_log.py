@@ -176,6 +176,14 @@ def updated_content(record: VersionRecord, lang: str) -> str:
         return record.subject
     joined = " ".join(record.files)
     if "homelessness-organizations-berlin" in joined and (
+        "map-marker" in joined or "scripts/build_organization_tables.py" in joined
+    ):
+        return (
+            "Organization addresses forced onto a new line and fixed map overlay labels removed"
+            if lang == "en"
+            else "Organisationsadressen in eigene Zeile gesetzt und feste Karten-Overlays entfernt"
+        )
+    if "homelessness-organizations-berlin" in joined and (
         "scripts/build_organization_tables.py" in joined
         or "build_organization_tables" in joined
     ):

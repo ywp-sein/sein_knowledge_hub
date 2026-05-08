@@ -58,7 +58,7 @@ def render_rows(lang: str, organizations: list[dict]) -> str:
                 [
                     "                  <tr>",
                     f"                    <td>{marker}</td>",
-                    f'                    <td><strong>{name}</strong><span class="org-address">{address}</span></td>',
+                    f'                    <td><strong>{name}</strong><br /><span class="org-address">{address}</span></td>',
                     f"                    <td>{focus}</td>",
                     f"                    <td>{how_it_helps}</td>",
                     f"                    <td>{source}</td>",

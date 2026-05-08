@@ -743,29 +743,6 @@ h3 {
   border: 0;
 }
 
-.map-marker-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.map-marker {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: 2px solid var(--surface);
-  border-radius: 999px;
-  background: #3366cc;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  transform: translate(-50%, -50%);
-}
-
 .density-placeholder {
   display: grid;
   gap: 8px;
