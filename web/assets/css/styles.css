@@ -621,6 +621,14 @@ h3 {
   background: var(--stripe);
 }
 
+.org-address {
+  color: var(--muted);
+  display: block;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  margin-top: 0.25rem;
+}
+
 .table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;

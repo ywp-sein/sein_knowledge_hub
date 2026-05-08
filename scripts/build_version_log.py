@@ -176,12 +176,23 @@ def updated_content(record: VersionRecord, lang: str) -> str:
         return record.subject
     joined = " ".join(record.files)
     if "homelessness-organizations-berlin" in joined and (
-        "homelessness-map-berlin" in joined or "web/assets/css/styles.css" in joined
+        "scripts/build_organization_tables.py" in joined
+        or "build_organization_tables" in joined
     ):
         return (
-            "Helping map and Berlin organization directory combined into one page"
+            "Organization table generation automated from JSON data"
             if lang == "en"
-            else "Hilfekarte und Berliner Organisationsverzeichnis auf einer Seite zusammengeführt"
+            else "Organisationstabelle wird automatisch aus JSON-Daten erzeugt"
+        )
+    if "homelessness-organizations-berlin" in joined and (
+        "homelessness-map-berlin" in joined
+        or "data/berlin-homelessness-organizations.json" in joined
+        or "data/" in joined
+    ):
+        return (
+            "Helping map directory table simplified and organization JSON database added"
+            if lang == "en"
+            else "Hilfekarten-Tabelle vereinfacht und Organisationsdatenbank als JSON ergänzt"
         )
     if "homelessness-map-berlin" in joined:
         return (

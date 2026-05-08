@@ -30,6 +30,7 @@ Published website files stay in `web/` so GitHub Pages can deploy a simple stati
 - `docs/content/`: writing rules, source practice, translation practice, and page requirements.
 - `docs/compliance/`: legal and compliance check records.
 - `docs/technical/`: site structure and maintenance notes.
+- `data/`: structured source data used to generate parts of the published pages.
 - `scripts/`: build and validation scripts.
 - `src/`: older source notes, not published directly.
 
@@ -53,6 +54,16 @@ python3 scripts/build_version_log.py
 ```
 
 GitHub Pages runs this script during deployment, so each pushed update appears with a numbered version, timestamp, area, and updated content summary. Use clear commit messages because they become the public update summary.
+
+## Generated organization tables
+
+The Berlin homelessness organization table is generated from `data/berlin-homelessness-organizations.json`:
+
+```bash
+python3 scripts/build_organization_tables.py
+```
+
+Run this after editing the JSON data. The validator checks that the generated HTML is up to date.
 
 ## Validation
 

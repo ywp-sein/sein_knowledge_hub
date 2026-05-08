@@ -1,0 +1,302 @@
+{
+  "schema_version": "0.1.0",
+  "topic": "homelessness",
+  "location": {
+    "city": "Berlin",
+    "country": "Germany"
+  },
+  "last_reviewed": "2026-05-08T17:10:00+02:00",
+  "notes": [
+    "Coordinates are retained for future map/database use but are not displayed in the article table.",
+    "Citywide or mobile services use approximate Berlin reference coordinates until more precise service-area data is available.",
+    "Opening hours, phone numbers, eligibility, and urgent service details must be checked against source pages before publication."
+  ],
+  "organizations": [
+    {
+      "id": "berliner-stadtmission",
+      "map_marker": 1,
+      "name": {
+        "en": "Berliner Stadtmission",
+        "de": "Berliner Stadtmission"
+      },
+      "address": {
+        "label": "Lehrter Straße 68, 10557 Berlin",
+        "street": "Lehrter Straße 68",
+        "postal_code": "10557",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "coordinates": {
+        "latitude": 52.5287,
+        "longitude": 13.3649,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Cold aid, emergency overnight support, clothing, outreach, medical and social support",
+        "de": "Kältehilfe, Notübernachtung, Kleidung, mobile Hilfe, medizinische und soziale Unterstützung"
+      },
+      "how_it_helps": {
+        "en": "Runs Kältehilfe offers including Kältebus and emergency overnight places.",
+        "de": "Betreibt Angebote der Kältehilfe, darunter Kältebus und Notübernachtungen."
+      },
+      "sources": [
+        {
+          "label": "Berliner Stadtmission: Armut und Wohnungslosigkeit",
+          "url": "https://www.berliner-stadtmission.de/angebote/armut-und-wohnungslosigkeit"
+        },
+        {
+          "label": "Berliner Stadtmission: Kleiderkammer Lehrter Straße",
+          "url": "https://www.berliner-stadtmission.de/komm-sieh/kleiderkammer"
+        }
+      ]
+    },
+    {
+      "id": "drk-berlin-waermebus",
+      "map_marker": 2,
+      "name": {
+        "en": "DRK Berlin Wärmebus",
+        "de": "DRK Berlin Wärmebus"
+      },
+      "address": {
+        "label": "Citywide mobile outreach",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "coordinates": {
+        "latitude": 52.52,
+        "longitude": 13.405,
+        "precision": "citywide-placeholder"
+      },
+      "focus": {
+        "en": "Winter outreach",
+        "de": "Winterliche Straßensozialarbeit"
+      },
+      "how_it_helps": {
+        "en": "Responds to calls, visits known sleeping places, distributes warm items, and can organize transport to emergency accommodation when wanted.",
+        "de": "Reagiert auf Hinweise, fährt bekannte Schlafplätze an, verteilt warme Dinge und kann auf Wunsch Transport in Notunterkünfte organisieren."
+      },
+      "sources": [
+        {
+          "label": "DRK Berlin: Wärmebus",
+          "url": "https://www.drk-berlin.de/start/ehrenamt/waermebus.html"
+        }
+      ]
+    },
+    {
+      "id": "berliner-obdachlosenhilfe",
+      "map_marker": 3,
+      "name": {
+        "en": "Berliner Obdachlosenhilfe e.V.",
+        "de": "Berliner Obdachlosenhilfe e.V."
+      },
+      "address": {
+        "label": "Lynarstraße 38, 13353 Berlin",
+        "street": "Lynarstraße 38",
+        "postal_code": "13353",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "coordinates": {
+        "latitude": 52.5465,
+        "longitude": 13.3548,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Volunteer street tours and social support",
+        "de": "Hilfstouren und soziale Unterstützung durch Freiwillige"
+      },
+      "how_it_helps": {
+        "en": "Runs aid tours with meals, drinks, clothing, sleeping bags, hygiene items, conversation, and information.",
+        "de": "Organisiert Hilfstouren mit Essen, Getränken, Kleidung, Schlafsäcken, Hygieneartikeln, Gespräch und Information."
+      },
+      "sources": [
+        {
+          "label": "Berliner Obdachlosenhilfe: Über uns",
+          "url": "https://www.berliner-obdachlosenhilfe.de/ueber-uns/"
+        },
+        {
+          "label": "Berliner Obdachlosenhilfe: Kontakt",
+          "url": "https://www.berliner-obdachlosenhilfe.de/kontakt/"
+        }
+      ]
+    },
+    {
+      "id": "caritas-berlin",
+      "map_marker": 4,
+      "name": {
+        "en": "Caritas Berlin",
+        "de": "Caritas Berlin"
+      },
+      "address": {
+        "label": "Levetzowstraße 12a, 10555 Berlin",
+        "street": "Levetzowstraße 12a",
+        "postal_code": "10555",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "coordinates": {
+        "latitude": 52.5226,
+        "longitude": 13.3423,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Housing emergency counselling and medical outreach",
+        "de": "Wohnungsnotberatung und medizinische mobile Hilfe"
+      },
+      "how_it_helps": {
+        "en": "Offers housing emergency advice and runs medical first/basic care such as the Caritas Arztmobil.",
+        "de": "Bietet Beratung bei Wohnungsnot und medizinische Erst- beziehungsweise Basisversorgung, etwa durch das Caritas Arztmobil."
+      },
+      "sources": [
+        {
+          "label": "Caritas Berlin: Menschen in Wohnungsnot",
+          "url": "https://www.caritas-berlin.de/beratungundhilfe/berlin/wohnungsnot/wohnungsnot"
+        },
+        {
+          "label": "Caritas: Zentrale Beratungsstelle für Menschen in Wohnungsnot",
+          "url": "https://www.caritas.de/adressen/caritasverband-fuer-das-erzbistum-berlin-e.-v/zentrale-beratungsstelle-fuer-menschen-in-wohnungs/10555-berlin/74735"
+        }
+      ]
+    },
+    {
+      "id": "gangway-drop-out",
+      "map_marker": 5,
+      "name": {
+        "en": "Gangway e.V.",
+        "de": "Gangway e.V."
+      },
+      "address": {
+        "label": "Berlin citywide street social work",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "coordinates": {
+        "latitude": 52.5,
+        "longitude": 13.39,
+        "precision": "citywide-placeholder"
+      },
+      "focus": {
+        "en": "Street social work",
+        "de": "Straßensozialarbeit"
+      },
+      "how_it_helps": {
+        "en": "Works with homeless and housing-threatened adults through Drop Out and StreetBer teams in public spaces.",
+        "de": "Arbeitet mit wohnungslosen und von Wohnungslosigkeit bedrohten Erwachsenen über Teams wie Drop Out und StreetBer im öffentlichen Raum."
+      },
+      "sources": [
+        {
+          "label": "Gangway: Team Drop Out",
+          "url": "https://gangway.de/teams/team-drop-out-streetwork-an-brennpunkten/"
+        }
+      ]
+    },
+    {
+      "id": "unionhilfswerk-wohnungslosenhilfe",
+      "map_marker": 6,
+      "name": {
+        "en": "Unionhilfswerk",
+        "de": "Unionhilfswerk"
+      },
+      "address": {
+        "label": "Berlin service area",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "coordinates": {
+        "latitude": 52.483,
+        "longitude": 13.431,
+        "precision": "service-area-placeholder"
+      },
+      "focus": {
+        "en": "Housing emergency assistance and accommodation",
+        "de": "Wohnungslosenhilfe, Beratung und Unterbringung"
+      },
+      "how_it_helps": {
+        "en": "Provides projects for people who are homeless or at risk of homelessness, including Wendepunkt Wohnen and shelters.",
+        "de": "Bietet Projekte für wohnungslose oder von Wohnungslosigkeit bedrohte Menschen, darunter Wendepunkt Wohnen und Unterkünfte."
+      },
+      "sources": [
+        {
+          "label": "Unionhilfswerk: Wohnungslosenhilfe",
+          "url": "https://www.unionhilfswerk.de/angebote/wohnungslosenhilfe/"
+        }
+      ]
+    },
+    {
+      "id": "teen-challenge-berliner-help-stiftung",
+      "map_marker": 7,
+      "name": {
+        "en": "Teen Challenge / Berliner Help Stiftung",
+        "de": "Teen Challenge / Berliner Help Stiftung"
+      },
+      "address": {
+        "label": "Rütlistraße 18, 13407 Berlin",
+        "street": "Rütlistraße 18",
+        "postal_code": "13407",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "coordinates": {
+        "latitude": 52.5657,
+        "longitude": 13.3656,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Addiction counselling, low-threshold social advice, therapy placement, street work",
+        "de": "Suchtberatung, niedrigschwellige Sozialberatung, Therapievermittlung, Straßenarbeit"
+      },
+      "how_it_helps": {
+        "en": "Teen Challenge Germany describes counselling, street work, housing/life-help and support for people on the margins; Berlin Hilfelotse lists Teen Challenge Berlin with low-threshold offers for people with drug addiction and general social counselling.",
+        "de": "Teen Challenge beschreibt Beratung, Streetwork, Wohn- und Lebenshilfe; Hilfelotse Berlin listet niedrigschwellige Angebote für Menschen mit Drogenabhängigkeit und allgemeine Sozialberatung."
+      },
+      "sources": [
+        {
+          "label": "Teen Challenge Deutschland: Start page and help areas",
+          "url": "https://www.tcd-teenchallenge.de/"
+        },
+        {
+          "label": "Hilfelotse Berlin: Berliner Help Stiftung / Teen Challenge Berlin",
+          "url": "https://www.hilfelotse-berlin.de/detail/berliner-help-stiftung-teen-challenge-berlin"
+        }
+      ]
+    },
+    {
+      "id": "heilsarmee-cafe-treffpunkt",
+      "map_marker": 8,
+      "name": {
+        "en": "The Salvation Army / Die Heilsarmee",
+        "de": "Die Heilsarmee"
+      },
+      "address": {
+        "label": "Kuglerstraße 11, 10439 Berlin",
+        "street": "Kuglerstraße 11",
+        "postal_code": "10439",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "coordinates": {
+        "latitude": 52.5522,
+        "longitude": 13.4215,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Mobile outreach, warm spaces, meeting cafés, meals, practical support",
+        "de": "Mobile Einsatzwagen, Wärmestuben, Begegnungscafés, Mittagstisch und praktische Unterstützung"
+      },
+      "how_it_helps": {
+        "en": "Heilsarmee Germany describes mobile outreach for people sleeping outside or staying temporarily with others, and names Berlin as one focus city; it also notes warm rooms and meeting cafés, including Berlin.",
+        "de": "Die Heilsarmee beschreibt mobile Hilfe für Menschen, die draußen schlafen oder vorübergehend bei anderen unterkommen, sowie Wärmestuben und Begegnungscafés."
+      },
+      "sources": [
+        {
+          "label": "Die Heilsarmee in Deutschland: Obdachlose bleiben außen vor",
+          "url": "https://www.heilsarmee.de/aktuelles/obdachlose-bleiben-aussen-vor.html"
+        },
+        {
+          "label": "Hilfelotse Berlin: Die Heilsarmee Cafe Treffpunkt",
+          "url": "https://www.hilfelotse-berlin.de/detail/die-heilsarmee-cafe-treffpunkt"
+        }
+      ]
+    }
+  ]
+}

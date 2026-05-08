@@ -2,13 +2,16 @@
 from __future__ import annotations
 
 import html.parser
+import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB = ROOT / "web"
+DATA = ROOT / "data"
 
 REQUIRED_SHARED_ASSETS = {
     "./assets/css/styles.css",
@@ -172,6 +175,44 @@ def article_requirements(errors: list[str]) -> None:
             fail(errors, f"{path.name} is missing an infobox")
 
 
+def data_files(errors: list[str]) -> None:
+    if not DATA.exists():
+        return
+    for path in sorted(DATA.glob("*.json")):
+        try:
+            payload = json.loads(read(path))
+        except json.JSONDecodeError as exc:
+            fail(errors, f"{path.relative_to(ROOT)} is invalid JSON: {exc}")
+            continue
+        if path.name == "berlin-homelessness-organizations.json":
+            organizations = payload.get("organizations")
+            if not isinstance(organizations, list) or not organizations:
+                fail(errors, f"{path.relative_to(ROOT)} must include a non-empty organizations list")
+                continue
+            for index, organization in enumerate(organizations, start=1):
+                if not organization.get("id"):
+                    fail(errors, f"{path.relative_to(ROOT)} organization #{index} is missing id")
+                if not organization.get("sources"):
+                    fail(errors, f"{path.relative_to(ROOT)} organization #{index} is missing sources")
+                coordinates = organization.get("coordinates", {})
+                if "latitude" not in coordinates or "longitude" not in coordinates:
+                    fail(errors, f"{path.relative_to(ROOT)} organization #{index} is missing coordinates")
+
+
+def generated_tables(errors: list[str]) -> None:
+    try:
+        subprocess.run(
+            [sys.executable, "scripts/build_organization_tables.py", "--check"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except subprocess.CalledProcessError as exc:
+        message = exc.stderr.strip() or exc.stdout.strip() or str(exc)
+        fail(errors, message)
+
+
 def main() -> int:
     errors: list[str] = []
     parse_html(errors)
@@ -180,6 +221,8 @@ def main() -> int:
     search_index(errors)
     service_worker(errors)
     article_requirements(errors)
+    data_files(errors)
+    generated_tables(errors)
 
     if errors:
         for error in errors:
