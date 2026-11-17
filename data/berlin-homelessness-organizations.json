@@ -5,7 +5,7 @@
     "city": "Berlin",
     "country": "Germany"
   },
-  "last_reviewed": "2026-05-08T17:41:00+02:00",
+  "last_reviewed": "2026-11-17T20:04:00+01:00",
   "notes": [
     "Coordinates are retained for future map/database use but are not displayed in the article table.",
     "Citywide or mobile services use approximate Berlin reference coordinates until more precise service-area data is available.",
@@ -337,6 +337,48 @@
         {
           "label": "Kauperts: Skalitzer Straße 133 coordinates",
           "url": "https://berlin.kauperts.de/eintrag/Fahimi-Skalitzer-Strasse-133-10999-Berlin"
+        }
+      ]
+    },
+    {
+      "id": "bstw",
+      "map_marker": 10,
+      "name": {
+        "en": "BSTW gGmbH",
+        "de": "BSTW gGmbH"
+      },
+      "address": {
+        "label": "Detmolder Straße 64B, 10715 Berlin",
+        "street": "Detmolder Straße 64B",
+        "postal_code": "10715",
+        "city": "Berlin",
+        "country": "Germany"
+      },
+      "coordinates": {
+        "latitude": 52.47858,
+        "longitude": 13.32632,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Supported housing and social support for homeless people and people affected by addiction",
+        "de": "Betreutes Wohnen und soziale Unterstützung für wohnungslose und suchtkranke Menschen"
+      },
+      "how_it_helps": {
+        "en": "Provides supported individual and group housing, help finding and keeping housing, and social support for adults and young adults. Contact BSTW to check eligibility and availability.",
+        "de": "Bietet betreutes Einzel- und Gruppenwohnen, Hilfe bei Wohnungserlangung und Wohnungserhalt sowie soziale Unterstützung für Erwachsene und junge Erwachsene. Voraussetzungen und freie Plätze können bei BSTW erfragt werden."
+      },
+      "sources": [
+        {
+          "label": "BSTW gGmbH",
+          "url": "https://www.bstw-berlin.de/"
+        },
+        {
+          "label": "Berlin.de: Betreutes Gruppenwohnen Charlottenburg-Wilmersdorf",
+          "url": "https://www.berlin.de/soziales-berlin/suche/index.php/detail/874"
+        },
+        {
+          "label": "Mapcarta: Detmolder Straße 64B coordinates (another business at the same address)",
+          "url": "https://mapcarta.com/N7560353416"
         }
       ]
     }

@@ -5,7 +5,7 @@
     "city": "Berlin",
     "country": "Germany"
   },
-  "last_reviewed": "2026-05-08T17:41:00+02:00",
+  "last_reviewed": "2026-11-17T20:04:00+01:00",
   "organizations": [
     {
       "id": "berliner-stadtmission",
@@ -221,6 +221,30 @@
       "source": {
         "label": "Berlin district addiction and drugs guide: Café SehnSucht",
         "url": "https://www.berlin.de/ba-tempelhof-schoeneberg/politik-und-verwaltung/service-und-organisationseinheiten/planungs-und-koordinierungsstelle-gesundheit/sucht-drogen-rat-und-hilfe_wegweiser-2020.pdf?ts=1726225972"
+      }
+    },
+    {
+      "id": "bstw",
+      "map_marker": 10,
+      "name": {
+        "en": "BSTW gGmbH",
+        "de": "BSTW gGmbH"
+      },
+      "address": {
+        "label": "Detmolder Straße 64B, 10715 Berlin"
+      },
+      "coordinates": {
+        "latitude": 52.47858,
+        "longitude": 13.32632,
+        "precision": "address"
+      },
+      "focus": {
+        "en": "Supported housing and social support for homeless people and people affected by addiction",
+        "de": "Betreutes Wohnen und soziale Unterstützung für wohnungslose und suchtkranke Menschen"
+      },
+      "source": {
+        "label": "BSTW gGmbH",
+        "url": "https://www.bstw-berlin.de/"
       }
     }
   ]
